@@ -1,18 +1,22 @@
 package com.app.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class FrmAbrirJornada extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField txtFechaHora;
 	private JTextField txtIdJornada;
@@ -40,6 +44,7 @@ public class FrmAbrirJornada extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmAbrirJornada() {
+		setResizable(false);
 		setTitle("Abrir Jornada");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 235);
@@ -77,11 +82,11 @@ public class FrmAbrirJornada extends JFrame {
 		contentPane.add(txtIdJornada);
 		
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(216, 158, 89, 23);
+		btnGuardar.setBounds(236, 158, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(315, 158, 89, 23);
+		btnCancelar.setBounds(335, 158, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JLabel lblDesde = new JLabel("Desde");

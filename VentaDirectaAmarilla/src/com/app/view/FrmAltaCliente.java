@@ -1,19 +1,22 @@
 package com.app.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
 
 public class FrmAltaCliente extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCodigoCliente;
 	private JTextField txtApellido;
@@ -86,9 +89,10 @@ public class FrmAltaCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmAltaCliente() {
+		setResizable(false);
 		setTitle("Alta de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 546, 395);
+		setBounds(100, 100, 546, 371);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -355,11 +359,11 @@ public class FrmAltaCliente extends JFrame {
 		panelUbicacionGeografica.add(lblLongitud);
 		
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(332, 309, 89, 23);
+		btnGuardar.setBounds(332, 294, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(431, 309, 89, 23);
+		btnCancelar.setBounds(431, 294, 89, 23);
 		contentPane.add(btnCancelar);
 	}
 }
