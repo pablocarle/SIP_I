@@ -3,11 +3,14 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 01/11/2015 22:59:26 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.ViaPago" table="VIAPAGO">
-        <id name="idViaPago" type="int">
-            <column name="IDVIAPAGO" />
+    <class name="com.app.model.Sucursal" table="SUCURSAL">
+        <id name="idSucursal" type="int">
+            <column name="IDSUCURSAL" />
             <generator class="assigned" />
         </id>
+        <property name="duracionTurno" type="java.lang.Float">
+            <column name="DURACIONTURNO" />
+        </property>
         <property name="nombre" type="java.lang.String">
             <column name="NOMBRE" />
         </property>

@@ -1,12 +1,18 @@
+IF OBJECT_ID('dbo.clientes', 'U') IS NOT NULL
+  DROP TABLE dbo.clientes; 
 
-/*
- * drop table clientes;
- * drop table itemspedido;
- * drop table pedidos;
- * drop table jornadas;
- * 
- * */
+IF OBJECT_ID('dbo.itemspedido', 'U') IS NOT NULL
+  DROP TABLE dbo.itemspedido;
 
+IF OBJECT_ID('dbo.productos', 'U') IS NOT NULL
+  DROP TABLE dbo.productos;
+
+IF OBJECT_ID('dbo.cargamoviles', 'U') IS NOT NULL
+  DROP TABLE dbo.cargamoviles;
+  
+IF OBJECT_ID('dbo.sucursales', 'U') IS NOT NULL
+  DROP TABLE dbo.sucursales;
+  
 create table sucursales (
 	idSucursal int not null,
 	duracionTurno float,
@@ -110,9 +116,9 @@ create table pedidos(
 	idCliente int not null,
 	idCargaMovil int null,
 	idViaPago int null,
-	fechaEntrega date not null,
-	horaDesde date null,
-	horaHasta date null,
+	fechaEntrega datetime not null,
+	horaDesde datetime null,
+	horaHasta datetime null,
 	constraint pedidos_pk primary key ( idPedido ),
 	constraint pedidos_clientes_fk foreign key ( idCliente ) references clientes ( idCliente ),
 	constraint pedidos_cargamovil_fk foreign key ( idCargaMovil ) references cargamoviles ( idCargaMovil ),

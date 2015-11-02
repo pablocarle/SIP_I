@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/11/2015 22:59:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Jornada" table="JORNADA">
+        <id name="idJornada" type="int">
+            <column name="IDJORNADA" />
+            <generator class="assigned" />
+        </id>
+        <property name="horaInicio" type="int">
+            <column name="HORAINICIO" />
+        </property>
+        <property name="minutoInicio" type="int">
+            <column name="MINUTOINICIO" />
+        </property>
+        <property name="horaFin" type="int">
+            <column name="HORAFIN" />
+        </property>
+        <property name="minutoFin" type="int">
+            <column name="MINUTOFIN" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01/11/2015 22:59:26 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Direccion" table="DIRECCION">
+        <id name="idDireccion" type="int">
+            <column name="IDDIRECCION" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="com.app.model.Cliente" fetch="join">
+            <column name="CLIENTE" />
+        </many-to-one>
+        <many-to-one name="localidad" class="com.app.model.Localidad" fetch="join">
+            <column name="LOCALIDAD" />
+        </many-to-one>
+        <property name="calle" type="java.lang.String">
+            <column name="CALLE" />
+        </property>
+        <property name="numero" type="java.lang.Integer">
+            <column name="NUMERO" />
+        </property>
+        <property name="piso" type="java.lang.Integer">
+            <column name="PISO" />
+        </property>
+        <property name="departamento" type="java.lang.String">
+            <column name="DEPARTAMENTO" />
+        </property>
+        <property name="edificio" type="java.lang.String">
+            <column name="EDIFICIO" />
+        </property>
+        <property name="barrio" type="java.lang.String">
+            <column name="BARRIO" />
+        </property>
+        <property name="manzana" type="java.lang.String">
+            <column name="MANZANA" />
+        </property>
+        <property name="parcela" type="java.lang.String">
+            <column name="PARCELA" />
+        </property>
+        <property name="sector" type="java.lang.String">
+            <column name="SECTOR" />
+        </property>
+        <property name="casa" type="java.lang.String">
+            <column name="CASA" />
+        </property>
+        <property name="chacra" type="java.lang.String">
+            <column name="CHACRA" />
+        </property>
+        <property name="quinta" type="java.lang.String">
+            <column name="QUINTA" />
+        </property>
+    </class>
+</hibernate-mapping>
