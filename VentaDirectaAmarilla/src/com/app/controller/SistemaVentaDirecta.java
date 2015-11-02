@@ -19,6 +19,7 @@ public class SistemaVentaDirecta {
 	}
 
 	private void initConnection() {
-		new Configuration().configure();
+		Configuration hbmConfig = new Configuration().configure();
+		System.out.println("Init HBM: " + hbmConfig.getProperties());
 	}
 }
