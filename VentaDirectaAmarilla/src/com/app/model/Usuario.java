@@ -1,20 +1,20 @@
 package com.app.model;
 
-public class Chofer {
-
-	private int idChofer;
+public class Usuario {
+	
+	private int isUsuario;
 	private String nombre;
 	
-	public Chofer() {
+	public Usuario() {
 		super();
 	}
 
-	public int getIdChofer() {
-		return idChofer;
+	public int getIsUsuario() {
+		return isUsuario;
 	}
 
-	public void setIdChofer(int idChofer) {
-		this.idChofer = idChofer;
+	public void setIsUsuario(int isUsuario) {
+		this.isUsuario = isUsuario;
 	}
 
 	public String getNombre() {
