@@ -77,7 +77,9 @@ create table turnos (
 	idPedido int not null,
 	fechaDesde datetime not null,
 	fechaHasta datetime not null,
-	constraint turnos_pk primary key ( idTurno )
+	constraint turnos_pk primary key ( idTurno ),
+	constraint turnos_jornada_fk foreign key ( idJornada ) references jornadas ( idJornada ),
+	constraint turnos_pedidos_fk foreign key ( idPedido ) references pedidos ( idPedido )
 );
 
 create table provincias (
@@ -154,10 +156,12 @@ create table referenciasmovil (
 
 create table posicionmovil (
 	idEvento int not null identity(1,1),
+	idMovil int not null,
 	latitud float not null,
 	longitud float not null,
 	fechaEvento datetime not null,
-	constraint posicionmovil_pk primary key ( idEvento )
+	constraint posicionmovil_pk primary key ( idEvento ),
+	constraint posicionmovil_movil_fk foreign key ( idMovil ) references moviles ( idMovil )
 );
 
 create table cargamoviles(
@@ -246,6 +250,7 @@ create table estadopedido (
 	constraint estadopedido_pk primary key ( idPedido, idEstadoPedido, fecha ),
 	constraint estadopedido_pedido_fk foreign key ( idPedido ) references pedidos ( idPedido ),
 	constraint estadopedido_usuarios_fk foreign key ( idUsuario ) references usuarios ( idUsuario )
+	constraint estadopedido_estados_fk foreign key ( idEstadoPedido ) references estadospedido ( isEstadoPedido )
 );
 
 create table costoasignacion (

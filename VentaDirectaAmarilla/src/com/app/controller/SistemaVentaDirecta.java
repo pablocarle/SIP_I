@@ -1,5 +1,6 @@
 package com.app.controller;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class SistemaVentaDirecta {
@@ -12,6 +13,8 @@ public class SistemaVentaDirecta {
 		}
 		return instancia;
 	}
+	
+	private SessionFactory factory;
 	
 	private SistemaVentaDirecta() {
 		super();
