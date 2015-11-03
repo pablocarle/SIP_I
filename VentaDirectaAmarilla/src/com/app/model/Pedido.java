@@ -1,11 +1,11 @@
 package com.app.model;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 public class Pedido {
 	
-	private List<ItemPedido> items;
+	private Collection<ItemPedido> items;
 	private Cliente cliente;
 	private CargaMovil cargaMovil;
 	private Date fechaEntrega;
@@ -17,12 +17,6 @@ public class Pedido {
 		super();
 	}
 	
-	public List<ItemPedido> getItems() {
-		return items;
-	}
-	public void setItems(List<ItemPedido> items) {
-		this.items = items;
-	}
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -58,5 +52,11 @@ public class Pedido {
 	}
 	public void setViaPago(ViaPago viaPago) {
 		this.viaPago = viaPago;
+	}
+	public Collection<ItemPedido> getItems() {
+		return items;
+	}
+	public void setItems(Collection<ItemPedido> items) {
+		this.items = items;
 	}
 }

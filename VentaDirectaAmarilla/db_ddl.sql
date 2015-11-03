@@ -211,6 +211,7 @@ create unique index cargadetalle_uidx on cargadetalle ( idCargaMovil, idProducto
 create table pedidos(
 	idPedido int not null identity(1,1),
 	idCliente int not null,
+	idDireccion int not null,
 	idCargaMovil int null,
 	idViaPago int null,
 	idUsuario int not null,
@@ -222,7 +223,8 @@ create table pedidos(
 	constraint pedidos_clientes_fk foreign key ( idCliente ) references clientes ( idCliente ),
 	constraint pedidos_cargamovil_fk foreign key ( idCargaMovil ) references cargamoviles ( idCargaMovil ),
 	constraint pedidos_viapagos_fk foreign key ( idViaPago ) references viapagos ( idViaPago ),
-	constraint pedidos_usuarios_fk foreign key ( idUsuario ) references usuarios ( idUsuario )
+	constraint pedidos_usuarios_fk foreign key ( idUsuario ) references usuarios ( idUsuario ),
+	constraint pedidos_direcciones_fk foreign key ( idDireccion ) references direcciones ( idDireccion )
 );
 
 create table pedidodetalle (
