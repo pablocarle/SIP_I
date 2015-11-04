@@ -14,7 +14,8 @@ public class SistemaVentaDirecta {
 		return instancia;
 	}
 	
-	private SessionFactory factory;
+	private Configuration hbmConfig = null;
+	private SessionFactory factory = null;
 	
 	private SistemaVentaDirecta() {
 		super();
@@ -22,7 +23,19 @@ public class SistemaVentaDirecta {
 	}
 
 	private void initConnection() {
-		Configuration hbmConfig = new Configuration().configure();
+		hbmConfig = new Configuration().configure();
 		System.out.println("Init HBM: " + hbmConfig.getProperties());
+		factory = hbmConfig.buildSessionFactory();
+	}
+	
+	public SessionFactory getSessionFactory() {
+		if (factory == null && hbmConfig != null) {
+			factory = hbmConfig.buildSessionFactory();
+			return factory;
+		} else if (factory != null) {
+			return factory;
+		} else {
+			throw new IllegalStateException("");
+		}
 	}
 }
