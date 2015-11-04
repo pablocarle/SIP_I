@@ -93,7 +93,7 @@ public class FrmBuscarCliente extends JFrame {
 		lblTelefono.setBounds(10, 127, 109, 14);
 		contentPane.add(lblTelefono);
 		
-		JComboBox cmbSucursal = new JComboBox();
+		JComboBox<String> cmbSucursal = new JComboBox<String>();
 		cmbSucursal.setBounds(329, 8, 166, 20);
 		contentPane.add(cmbSucursal);
 		

@@ -175,7 +175,7 @@ public class FrmAltaPedido extends JFrame {
 		txtHasta.setBounds(385, 229, 86, 20);
 		contentPane.add(txtHasta);
 		
-		JComboBox cmbViaPago = new JComboBox();
+		JComboBox<String> cmbViaPago = new JComboBox<String>();
 		cmbViaPago.setBounds(87, 257, 139, 20);
 		contentPane.add(cmbViaPago);
 		

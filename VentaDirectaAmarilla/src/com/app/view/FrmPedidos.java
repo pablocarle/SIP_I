@@ -51,7 +51,7 @@ public class FrmPedidos extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox cmbSucursal = new JComboBox();
+		JComboBox<String> cmbSucursal = new JComboBox<String>();
 		cmbSucursal.setBounds(66, 11, 125, 20);
 		contentPane.add(cmbSucursal);
 		

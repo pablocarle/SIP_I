@@ -1,21 +1,23 @@
 package com.app.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import javax.swing.JButton;
-import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class FrmAnular extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblObservacion;
 	private JButton btnAceptar;
@@ -56,7 +58,7 @@ public class FrmAnular extends JFrame {
 		lblMotivo.setBounds(48, 68, 62, 14);
 		contentPane.add(lblMotivo);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setToolTipText("Indique el motivo de anulaci\u00F3n.");
 		comboBox.setBounds(120, 61, 295, 26);
 		contentPane.add(comboBox);

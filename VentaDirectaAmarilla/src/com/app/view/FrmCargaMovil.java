@@ -64,7 +64,7 @@ public class FrmCargaMovil extends JFrame {
 		lblSucursal.setBounds(10, 14, 46, 14);
 		contentPane.add(lblSucursal);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setBounds(66, 11, 107, 20);
 		contentPane.add(comboBox);
 		
@@ -99,7 +99,7 @@ public class FrmCargaMovil extends JFrame {
 		lblCms.setBounds(197, 66, 46, 14);
 		contentPane.add(lblCms);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		JComboBox<String> comboBox_1 = new JComboBox<String>();
 		comboBox_1.setBounds(252, 11, 107, 20);
 		contentPane.add(comboBox_1);
 		
@@ -154,7 +154,7 @@ public class FrmCargaMovil extends JFrame {
 		table.setBounds(10, 36, 262, 127);
 		panelHorarios.add(table);
 		
-		JComboBox cmbReferencia = new JComboBox();
+		JComboBox<String> cmbReferencia = new JComboBox<String>();
 		cmbReferencia.setBounds(404, 63, 102, 20);
 		contentPane.add(cmbReferencia);
 		

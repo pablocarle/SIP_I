@@ -3,7 +3,6 @@ package com.app.db;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -51,10 +50,12 @@ public class MapperGenericoImpl<T, ID extends Serializable> implements MapperGen
 		return t;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Collection<? extends T> buscarMuchos(Map<String, Object> criteria) {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<? extends T> buscarMuchos(Query query) {
+		List<T> t = null;
+		t = query.list();
+		return t;
 	}
 
 	@Override

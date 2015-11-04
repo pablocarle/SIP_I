@@ -2,7 +2,6 @@ package com.app.db;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -19,7 +18,7 @@ public interface MapperGenerico<T, ID extends Serializable> {
 	
 	public Collection<? extends T> buscarTodos(Class<T> clasz);
 	
-	public Collection<? extends T> buscarMuchos(Map<String, Object> criteria);
+	public Collection<? extends T> buscarMuchos(Query query);
 	
 	public void guardar(T t);
 	

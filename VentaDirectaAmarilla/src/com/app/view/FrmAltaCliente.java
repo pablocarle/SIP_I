@@ -32,10 +32,10 @@ public class FrmAltaCliente extends JFrame {
 	private JLabel lblPiso;
 	private JLabel lblDepartamento;
 	private JLabel lblProvincia;
-	private JComboBox cmbLocalidad;
+	private JComboBox<String> cmbLocalidad;
 	private JLabel lblLocalidad;
 	private JTextField txtNumeroDocumento;
-	private JComboBox cmbTipoDocumento;
+	private JComboBox<String> cmbTipoDocumento;
 	private JLabel lblTipoNIF;
 	private JLabel lblNumeroDocumento;
 	private JTextField txtSucursal;
@@ -48,8 +48,8 @@ public class FrmAltaCliente extends JFrame {
 	private JTextField txtCasa;
 	private JTextField txtChacra;
 	private JTextField txtQuinta;
-	private JComboBox cmbViaPago;
-	private JComboBox cmbCondicionIVA;
+	private JComboBox<String> cmbViaPago;
+	private JComboBox<String> cmbCondicionIVA;
 	private JLabel lblViaPago;
 	private JLabel lblCondicionIva;
 	private JPanel panelUbicacionGeografica;
@@ -158,7 +158,7 @@ public class FrmAltaCliente extends JFrame {
 		panelDatosPrincipales.add(txtNumeroDocumento);
 		txtNumeroDocumento.setColumns(10);
 		
-		cmbTipoDocumento = new JComboBox();
+		cmbTipoDocumento = new JComboBox<String>();
 		cmbTipoDocumento.setBounds(89, 139, 110, 20);
 		panelDatosPrincipales.add(cmbTipoDocumento);
 		
@@ -229,7 +229,7 @@ public class FrmAltaCliente extends JFrame {
 		lblDepartamento.setBounds(143, 83, 94, 14);
 		panelDatosDireccion.add(lblDepartamento);
 		
-		JComboBox cmbProvincia = new JComboBox();
+		JComboBox<String> cmbProvincia = new JComboBox<String>();
 		cmbProvincia.setBounds(83, 11, 118, 20);
 		panelDatosDireccion.add(cmbProvincia);
 		
@@ -237,7 +237,7 @@ public class FrmAltaCliente extends JFrame {
 		lblProvincia.setBounds(10, 14, 63, 14);
 		panelDatosDireccion.add(lblProvincia);
 		
-		cmbLocalidad = new JComboBox();
+		cmbLocalidad = new JComboBox<String>();
 		cmbLocalidad.setBounds(305, 11, 146, 20);
 		panelDatosDireccion.add(cmbLocalidad);
 		
@@ -325,11 +325,11 @@ public class FrmAltaCliente extends JFrame {
 		tabbedPane.addTab("Datos Comerciales", null, panelDatosComerciales, null);
 		panelDatosComerciales.setLayout(null);
 		
-		cmbViaPago = new JComboBox();
+		cmbViaPago = new JComboBox<String>();
 		cmbViaPago.setBounds(99, 11, 98, 20);
 		panelDatosComerciales.add(cmbViaPago);
 		
-		cmbCondicionIVA = new JComboBox();
+		cmbCondicionIVA = new JComboBox<String>();
 		cmbCondicionIVA.setBounds(99, 42, 98, 20);
 		panelDatosComerciales.add(cmbCondicionIVA);
 		
