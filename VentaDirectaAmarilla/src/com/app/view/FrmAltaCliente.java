@@ -61,6 +61,7 @@ public class FrmAltaCliente extends JFrame {
 	private JTextField txtEmail;
 
 	private static FrmAltaCliente instancia;
+	private JButton btnNuevaDireccin;
 	
 	public static FrmAltaCliente getInstancia(){
 		if (instancia==null){
@@ -92,7 +93,7 @@ public class FrmAltaCliente extends JFrame {
 		setResizable(false);
 		setTitle("Alta de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 546, 360);
+		setBounds(100, 100, 569, 363);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -308,13 +309,17 @@ public class FrmAltaCliente extends JFrame {
 		panelDatosDireccion.add(txtChacra);
 		
 		JLabel lblQuinta = new JLabel("Quinta");
-		lblQuinta.setBounds(10, 173, 46, 14);
+		lblQuinta.setBounds(10, 175, 46, 14);
 		panelDatosDireccion.add(lblQuinta);
 		
 		txtQuinta = new JTextField();
 		txtQuinta.setColumns(10);
-		txtQuinta.setBounds(83, 170, 38, 20);
+		txtQuinta.setBounds(83, 172, 38, 20);
 		panelDatosDireccion.add(txtQuinta);
+		
+		btnNuevaDireccin = new JButton("Nueva Direcci\u00F3n");
+		btnNuevaDireccin.setBounds(331, 173, 120, 23);
+		panelDatosDireccion.add(btnNuevaDireccin);
 		
 		JPanel panelDatosComerciales = new JPanel();
 		tabbedPane.addTab("Datos Comerciales", null, panelDatosComerciales, null);
