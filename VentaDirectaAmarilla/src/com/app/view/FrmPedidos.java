@@ -19,7 +19,7 @@ public class FrmPedidos extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tblPedidos;
 	private static FrmPedidos instancia;
 	
 	/**
@@ -45,7 +45,7 @@ public class FrmPedidos extends JFrame {
 		setResizable(false);
 		setTitle("Pedidos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 593, 405);
+		setBounds(100, 100, 623, 397);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -59,9 +59,9 @@ public class FrmPedidos extends JFrame {
 		lblSucursal.setBounds(10, 14, 79, 14);
 		contentPane.add(lblSucursal);
 		
-		table = new JTable();
-		table.setBounds(10, 48, 559, 257);
-		contentPane.add(table);
+		tblPedidos = new JTable();
+		tblPedidos.setBounds(10, 48, 597, 257);
+		contentPane.add(tblPedidos);
 		
 		JButton btnNuevoPedido = new JButton("Nuevo Pedido");
 		btnNuevoPedido.addActionListener(new ActionListener() {
@@ -70,16 +70,24 @@ public class FrmPedidos extends JFrame {
 				frmAltaPedido.setVisible(true);
 			}
 		});
-		btnNuevoPedido.setBounds(10, 327, 136, 23);
+		btnNuevoPedido.setBounds(10, 316, 113, 23);
 		contentPane.add(btnNuevoPedido);
 		
 		JButton btnReprogramar = new JButton("Reprogramar");
-		btnReprogramar.setBounds(156, 327, 113, 23);
+		btnReprogramar.setBounds(133, 316, 113, 23);
 		contentPane.add(btnReprogramar);
 		
 		JButton btnAnular = new JButton("Anular");
-		btnAnular.setBounds(279, 327, 89, 23);
+		btnAnular.setBounds(377, 316, 113, 23);
 		contentPane.add(btnAnular);
+		
+		JButton btnAsignar = new JButton("Asignar");
+		btnAsignar.setBounds(254, 316, 113, 23);
+		contentPane.add(btnAsignar);
+		
+		JButton btnEntregar = new JButton("Entregar");
+		btnEntregar.setBounds(496, 316, 113, 23);
+		contentPane.add(btnEntregar);
 	}
 
 	public static FrmPedidos getInstancia() {
@@ -88,5 +96,4 @@ public class FrmPedidos extends JFrame {
 		}
 		return instancia;
 	}
-
 }

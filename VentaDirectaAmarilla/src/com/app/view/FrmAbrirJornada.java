@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmAbrirJornada extends JFrame {
 
@@ -20,8 +22,8 @@ public class FrmAbrirJornada extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtFechaHora;
 	private JTextField txtIdJornada;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtDesde;
+	private JTextField txtHasta;
 
 	private static FrmAbrirJornada instancia;
 	/**
@@ -82,6 +84,11 @@ public class FrmAbrirJornada extends JFrame {
 		contentPane.add(txtIdJornada);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnGuardar.setBounds(236, 158, 89, 23);
 		contentPane.add(btnGuardar);
 		
@@ -93,27 +100,27 @@ public class FrmAbrirJornada extends JFrame {
 		lblDesde.setBounds(10, 84, 84, 14);
 		contentPane.add(lblDesde);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(74, 81, 120, 20);
-		contentPane.add(textField);
+		txtDesde = new JTextField();
+		txtDesde.setColumns(10);
+		txtDesde.setBounds(74, 81, 120, 20);
+		contentPane.add(txtDesde);
 		
 		JLabel lblHasta = new JLabel("Hasta");
 		lblHasta.setBounds(221, 87, 84, 14);
 		contentPane.add(lblHasta);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(285, 84, 120, 20);
-		contentPane.add(textField_1);
+		txtHasta = new JTextField();
+		txtHasta.setColumns(10);
+		txtHasta.setBounds(285, 84, 120, 20);
+		contentPane.add(txtHasta);
 		
 		JLabel lblMinTurno = new JLabel("Min. Turno");
 		lblMinTurno.setBounds(10, 117, 84, 14);
 		contentPane.add(lblMinTurno);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(74, 114, 39, 20);
-		contentPane.add(comboBox_1);
+		JComboBox cmbMinTurno = new JComboBox();
+		cmbMinTurno.setBounds(74, 114, 39, 20);
+		contentPane.add(cmbMinTurno);
 	}
 
 	public static FrmAbrirJornada getInstancia() {
