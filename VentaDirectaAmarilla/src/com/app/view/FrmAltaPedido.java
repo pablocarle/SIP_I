@@ -71,28 +71,28 @@ public class FrmAltaPedido extends JFrame {
 		setResizable(false);
 		setTitle("Alta Pedido");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 498, 548);
+		setBounds(100, 100, 497, 591);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblIdPedido = new JLabel("Id. Pedido");
-		lblIdPedido.setBounds(10, 11, 63, 14);
+		lblIdPedido.setBounds(10, 21, 63, 14);
 		contentPane.add(lblIdPedido);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(87, 8, 86, 20);
+		textField.setBounds(87, 18, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblCliente = new JLabel("C\u00F3digo Cliente");
-		lblCliente.setBounds(10, 61, 78, 14);
+		lblCliente.setBounds(10, 94, 78, 14);
 		contentPane.add(lblCliente);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(87, 58, 86, 20);
+		textField_1.setBounds(87, 91, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -103,113 +103,113 @@ public class FrmAltaPedido extends JFrame {
 				frmBuscarCliente.setVisible(true);
 			}
 		});
-		btnBuscarCliente.setBounds(180, 57, 25, 23);
+		btnBuscarCliente.setBounds(183, 90, 25, 23);
 		contentPane.add(btnBuscarCliente);
 		
 		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(10, 89, 78, 14);
+		lblApellido.setBounds(10, 122, 78, 14);
 		contentPane.add(lblApellido);
 		
 		txtApellido = new JTextField();
 		txtApellido.setEditable(false);
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(87, 86, 153, 20);
+		txtApellido.setBounds(87, 119, 153, 20);
 		contentPane.add(txtApellido);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(263, 89, 78, 14);
+		lblNombre.setBounds(263, 122, 78, 14);
 		contentPane.add(lblNombre);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
-		textField_2.setBounds(318, 86, 153, 20);
+		textField_2.setBounds(318, 119, 153, 20);
 		contentPane.add(textField_2);
 		
 		JLabel lblEstado = new JLabel("Estado");
-		lblEstado.setBounds(329, 11, 46, 14);
+		lblEstado.setBounds(10, 48, 46, 14);
 		contentPane.add(lblEstado);
 		
 		txtEstadoPedido = new JTextField();
 		txtEstadoPedido.setEditable(false);
 		txtEstadoPedido.setColumns(10);
-		txtEstadoPedido.setBounds(385, 8, 86, 20);
+		txtEstadoPedido.setBounds(87, 45, 86, 20);
 		contentPane.add(txtEstadoPedido);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 39, 461, 7);
+		separator.setBounds(10, 76, 461, 7);
 		contentPane.add(separator);
 		
 		JLabel lblRazonSocial = new JLabel("Razon Social");
-		lblRazonSocial.setBounds(10, 117, 78, 14);
+		lblRazonSocial.setBounds(10, 150, 78, 14);
 		contentPane.add(lblRazonSocial);
 		
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
-		textField_3.setBounds(87, 114, 384, 20);
+		textField_3.setBounds(87, 147, 384, 20);
 		contentPane.add(textField_3);
 		
 		JLabel lblDomicilio = new JLabel("Domicilio");
-		lblDomicilio.setBounds(10, 146, 78, 14);
+		lblDomicilio.setBounds(10, 179, 78, 14);
 		contentPane.add(lblDomicilio);
 		
 		txtDomicilio = new JTextField();
 		txtDomicilio.setEditable(false);
 		txtDomicilio.setColumns(10);
-		txtDomicilio.setBounds(87, 143, 384, 20);
+		txtDomicilio.setBounds(87, 176, 384, 20);
 		contentPane.add(txtDomicilio);
 		
 		txtFechaPedido = new JTextField();
-		txtFechaPedido.setBounds(87, 196, 86, 20);
+		txtFechaPedido.setBounds(87, 229, 86, 20);
 		contentPane.add(txtFechaPedido);
 		txtFechaPedido.setColumns(10);
 		
 		txtDesde = new JTextField();
 		txtDesde.setColumns(10);
-		txtDesde.setBounds(231, 196, 86, 20);
+		txtDesde.setBounds(231, 229, 86, 20);
 		contentPane.add(txtDesde);
 		
 		txtHasta = new JTextField();
 		txtHasta.setColumns(10);
-		txtHasta.setBounds(385, 196, 86, 20);
+		txtHasta.setBounds(385, 229, 86, 20);
 		contentPane.add(txtHasta);
 		
 		JComboBox cmbViaPago = new JComboBox();
-		cmbViaPago.setBounds(87, 224, 139, 20);
+		cmbViaPago.setBounds(87, 257, 139, 20);
 		contentPane.add(cmbViaPago);
 		
 		JLabel lblFecha = new JLabel("Fecha");
-		lblFecha.setBounds(10, 199, 46, 14);
+		lblFecha.setBounds(10, 232, 46, 14);
 		contentPane.add(lblFecha);
 		
 		JLabel lblDesde = new JLabel("Desde");
-		lblDesde.setBounds(180, 199, 46, 14);
+		lblDesde.setBounds(180, 232, 46, 14);
 		contentPane.add(lblDesde);
 		
 		JLabel lblHasta = new JLabel("Hasta");
-		lblHasta.setBounds(339, 199, 46, 14);
+		lblHasta.setBounds(339, 232, 46, 14);
 		contentPane.add(lblHasta);
 		
 		JLabel lblViaPago = new JLabel("Via de Pago");
-		lblViaPago.setBounds(10, 227, 63, 14);
+		lblViaPago.setBounds(10, 260, 63, 14);
 		contentPane.add(lblViaPago);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 181, 461, 7);
+		separator_1.setBounds(10, 214, 461, 7);
 		contentPane.add(separator_1);
 		
 		txtDominio = new JTextField();
-		txtDominio.setBounds(87, 270, 86, 20);
+		txtDominio.setBounds(87, 302, 86, 20);
 		contentPane.add(txtDominio);
 		txtDominio.setColumns(10);
 		
 		JLabel lblDominio = new JLabel("Dominio");
-		lblDominio.setBounds(10, 273, 46, 14);
+		lblDominio.setBounds(10, 305, 46, 14);
 		contentPane.add(lblDominio);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 301, 461, 165);
+		tabbedPane.setBounds(10, 337, 461, 165);
 		contentPane.add(tabbedPane);
 		
 		JPanel panelDetallePedido = new JPanel();
@@ -243,25 +243,29 @@ public class FrmAltaPedido extends JFrame {
 		panelDetalleFactura.add(lblImporteTotal);
 		
 		JSeparator separator_2 = new JSeparator();
-		separator_2.setBounds(10, 255, 461, 7);
+		separator_2.setBounds(10, 288, 461, 7);
 		contentPane.add(separator_2);
 		
 		txtFechaHoraEntrega = new JTextField();
 		txtFechaHoraEntrega.setEditable(false);
-		txtFechaHoraEntrega.setBounds(308, 270, 163, 20);
+		txtFechaHoraEntrega.setBounds(305, 18, 139, 20);
 		contentPane.add(txtFechaHoraEntrega);
 		txtFechaHoraEntrega.setColumns(10);
 		
-		JLabel lblFechahoraEntrega = new JLabel("Fecha/Hora Entrega");
-		lblFechahoraEntrega.setBounds(194, 273, 104, 14);
+		JLabel lblFechahoraEntrega = new JLabel("Fecha/Hora Ult. Estado");
+		lblFechahoraEntrega.setBounds(183, 21, 112, 14);
 		contentPane.add(lblFechahoraEntrega);
 		
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(274, 476, 89, 23);
+		btnGuardar.setBounds(277, 513, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(382, 476, 89, 23);
+		btnCancelar.setBounds(382, 513, 89, 23);
 		contentPane.add(btnCancelar);
+		
+		JButton btnAsignar = new JButton("Asignar M\u00F3vil");
+		btnAsignar.setBounds(193, 301, 124, 23);
+		contentPane.add(btnAsignar);
 	}
 }
