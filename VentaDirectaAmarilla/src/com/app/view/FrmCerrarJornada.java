@@ -55,7 +55,7 @@ public class FrmCerrarJornada extends JFrame {
 		btnCancelar.setBounds(323, 216, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		JComboBox cmbSucursal = new JComboBox();
+		JComboBox<String> cmbSucursal = new JComboBox<String>();
 		cmbSucursal.setBounds(79, 11, 108, 20);
 		contentPane.add(cmbSucursal);
 		

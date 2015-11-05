@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Cliente" table="clientes">
+        <id name="idCliente" type="int">
+            <column name="IDCLIENTE" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellido" type="java.lang.String">
+            <column name="APELLIDO" />
+        </property>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="razonSocial" type="java.lang.String">
+            <column name="RAZONSOCIAL" />
+        </property>
+        <property name="tipoNif" type="int">
+            <column name="TIPONIF" />
+        </property>
+        <property name="nif" type="java.lang.String">
+            <column name="NIF" />
+        </property>
+        <bag name="direcciones" table="DIRECCION" inverse="false" lazy="true">
+            <key>
+                <column name="IDCLIENTE" />
+            </key>
+            <one-to-many class="com.app.model.Direccion" />
+        </bag>
+        <bag name="pedidos" table="PEDIDO" inverse="false" lazy="true">
+            <key>
+                <column name="IDCLIENTE" />
+            </key>
+            <one-to-many class="com.app.model.Pedido" />
+        </bag>
+    </class>
+</hibernate-mapping>

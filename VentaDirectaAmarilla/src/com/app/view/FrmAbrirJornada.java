@@ -65,7 +65,7 @@ public class FrmAbrirJornada extends JFrame {
 		contentPane.add(txtFechaHora);
 		txtFechaHora.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setBounds(74, 50, 120, 20);
 		contentPane.add(comboBox);
 		
@@ -118,7 +118,7 @@ public class FrmAbrirJornada extends JFrame {
 		lblMinTurno.setBounds(10, 117, 84, 14);
 		contentPane.add(lblMinTurno);
 		
-		JComboBox cmbMinTurno = new JComboBox();
+		JComboBox<String> cmbMinTurno = new JComboBox<String>();
 		cmbMinTurno.setBounds(74, 114, 39, 20);
 		contentPane.add(cmbMinTurno);
 	}

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.CargaMovil" table="CARGAMOVIL">
+        <id name="idCargaMovil" type="int">
+            <column name="IDCARGAMOVIL" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sucursal" class="com.app.model.Sucursal" fetch="join">
+            <column name="SUCURSAL" />
+        </many-to-one>
+        <many-to-one name="movil" class="com.app.model.Movil" fetch="join">
+            <column name="MOVIL" />
+        </many-to-one>
+        <many-to-one name="chofer" class="com.app.model.Chofer" fetch="join">
+            <column name="CHOFER" />
+        </many-to-one>
+        <many-to-one name="referenciaMovil" class="com.app.model.ReferenciaMovil" fetch="join">
+            <column name="REFERENCIAMOVIL" />
+        </many-to-one>
+        <property name="orderProceso" type="java.lang.String">
+            <column name="ORDERPROCESO" />
+        </property>
+        <property name="cms" type="java.lang.String">
+            <column name="CMS" />
+        </property>
+        <bag name="detalles" table="CARGADETALLE" inverse="false" lazy="true">
+            <key>
+                <column name="IDCARGAMOVIL" />
+            </key>
+            <one-to-many class="com.app.model.CargaDetalle" />
+        </bag>
+        <bag name="choferes" table="CARGAHORARIOCHOFER" inverse="false" lazy="true">
+            <key>
+                <column name="IDCARGAMOVIL" />
+            </key>
+            <one-to-many class="com.app.model.CargaHorarioChofer" />
+        </bag>
+    </class>
+</hibernate-mapping>
