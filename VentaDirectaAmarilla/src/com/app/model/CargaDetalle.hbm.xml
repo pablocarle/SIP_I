@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.CargaDetalle" table="CARGADETALLE">
+        <id name="idCargaDetalle" type="int">
+            <column name="IDCARGADETALLE" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cargaMovil" class="com.app.model.CargaMovil" fetch="join">
+            <column name="CARGAMOVIL" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.app.model.Producto" fetch="join">
+            <column name="PRODUCTO" />
+        </many-to-one>
+        <property name="stockInicial" type="int">
+            <column name="STOCKINICIAL" />
+        </property>
+        <property name="stockLogico" type="int">
+            <column name="STOCKLOGICO" />
+        </property>
+        <property name="stockFisico" type="int">
+            <column name="STOCKFISICO" />
+        </property>
+    </class>
+</hibernate-mapping>

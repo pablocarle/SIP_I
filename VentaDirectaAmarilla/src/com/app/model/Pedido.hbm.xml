@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Pedido" table="PEDIDO">
+        <id name="cliente" type="com.app.model.Cliente">
+            <column name="CLIENTE" />
+            <generator class="assigned" />
+        </id>
+        <bag name="items" table="ITEMPEDIDO" inverse="false" lazy="true">
+            <key>
+                <column name="CLIENTE" />
+            </key>
+            <one-to-many class="com.app.model.ItemPedido" />
+        </bag>
+        <many-to-one name="cargaMovil" class="com.app.model.CargaMovil" fetch="join">
+            <column name="CARGAMOVIL" />
+        </many-to-one>
+        <property name="fechaEntrega" type="java.util.Date">
+            <column name="FECHAENTREGA" />
+        </property>
+        <property name="horaDesde" type="java.util.Date">
+            <column name="HORADESDE" />
+        </property>
+        <property name="horaHasta" type="java.util.Date">
+            <column name="HORAHASTA" />
+        </property>
+        <many-to-one name="viaPago" class="com.app.model.ViaPago" fetch="join">
+            <column name="VIAPAGO" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

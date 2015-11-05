@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.connection.username">pcarle</property>
+  <property name="hibernate.connection.password">654321</property>
+  <property name="hibernate.connection.url">jdbc:sqlserver://localhost;databaseName=ventadirecta;instanceName=SQLEXPRESS;</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.format_sql">true</property>
+  <mapping class="com.app.model.Cliente" resource="com/app/model/Cliente.hbm.xml"/>
+  <mapping class="com.app.model.Pedido" resource="com/app/model/Pedido.hbm.xml"/>
+  <mapping class="com.app.model.Direccion" resource="com/app/model/Direccion.hbm.xml"/>
+  <mapping class="com.app.model.Movil" resource="com/app/model/Movil.hbm.xml"/>
+  <mapping class="com.app.model.Usuario" resource="com/app/model/Usuario.hbm.xml"/>
+  <mapping class="com.app.model.CargaDetalle" resource="com/app/model/CargaDetalle.hbm.xml"/>
+  <mapping class="com.app.model.CargaHorarioChofer" resource="com/app/model/CargaHorarioChofer.hbm.xml"/>
+  <mapping class="com.app.model.CargaMovil" resource="com/app/model/CargaMovil.hbm.xml"/>
+  <mapping class="com.app.model.Chofer" resource="com/app/model/Chofer.hbm.xml"/>
+  <mapping class="com.app.model.ItemPedido" resource="com/app/model/ItemPedido.hbm.xml"/>
+  <mapping class="com.app.model.Jornada" resource="com/app/model/Jornada.hbm.xml"/>
+  <mapping class="com.app.model.Localidad" resource="com/app/model/Localidad.hbm.xml"/>
+  <mapping class="com.app.model.Producto" resource="com/app/model/Producto.hbm.xml"/>
+  <mapping class="com.app.model.Provincia" resource="com/app/model/Provincia.hbm.xml"/>
+  <mapping class="com.app.model.ReferenciaMovil" resource="com/app/model/ReferenciaMovil.hbm.xml"/>
+  <mapping class="com.app.model.Sucursal" resource="com/app/model/Sucursal.hbm.xml"/>
+  <mapping class="com.app.model.Turno" resource="com/app/model/Turno.hbm.xml"/>
+  <mapping class="com.app.model.ViaPago" resource="com/app/model/ViaPago.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

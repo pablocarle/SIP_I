@@ -1,7 +1,13 @@
 package com.app.controller;
 
+import java.util.Collection;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import com.app.db.ClienteMapper;
+import com.app.db.ClienteMapperImpl;
+import com.app.model.Cliente;
 
 public class SistemaVentaDirecta {
 	
@@ -21,6 +27,16 @@ public class SistemaVentaDirecta {
 		super();
 		initConnection();
 	}
+	
+	public static void main(String[] args) {
+		SistemaVentaDirecta vd = SistemaVentaDirecta.getSistema();
+		vd.getSessionFactory();
+		
+		ClienteMapper mapperCliente = new ClienteMapperImpl();
+		Collection<Cliente> clientes = mapperCliente.buscarTodos(Cliente.class);
+		System.out.println(clientes.size());
+		
+	}
 
 	private void initConnection() {
 		hbmConfig = new Configuration().configure();
@@ -35,7 +51,7 @@ public class SistemaVentaDirecta {
 		} else if (factory != null) {
 			return factory;
 		} else {
-			throw new IllegalStateException("");
+			throw new IllegalStateException("No se detecto configuracion hibernate activa");
 		}
 	}
 }

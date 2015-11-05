@@ -16,9 +16,9 @@ public interface MapperGenerico<T, ID extends Serializable> {
 	
 	public T encontrarUno(Query query);
 	
-	public Collection<? extends T> buscarTodos(Class<T> clasz);
+	public Collection<T> buscarTodos(Class<T> clasz);
 	
-	public Collection<? extends T> buscarMuchos(Query query);
+	public Collection<T> buscarMuchos(Query query);
 	
 	public void guardar(T t);
 	
