@@ -10,6 +10,10 @@ public class Cliente {
 	private String razonSocial;
 	private int tipoNif;
 	private String nif;
+	private CondicionIVA condicionIVA;
+	private ViaPago viaPago;
+	private String email;
+	private String telefono;
 	private Collection<Direccion> direcciones;
 	private Collection<Pedido> pedidos;
 	
@@ -79,5 +83,37 @@ public class Cliente {
 
 	public void setPedidos(Collection<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public CondicionIVA getCondicionIVA() {
+		return condicionIVA;
+	}
+
+	public void setCondicionIVA(CondicionIVA condicionIVA) {
+		this.condicionIVA = condicionIVA;
+	}
+
+	public ViaPago getViaPago() {
+		return viaPago;
+	}
+
+	public void setViaPago(ViaPago viaPago) {
+		this.viaPago = viaPago;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 }

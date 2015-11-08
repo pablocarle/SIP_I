@@ -1,24 +1,15 @@
 package com.app.model;
 
-public class CargaDetalle {
+public class ItemCargaMovil {
 	
-	private int idCargaDetalle;
 	private CargaMovil cargaMovil;
 	private Producto producto;
-	private int stockInicial;
+	private int cantidadInicial;
 	private int stockLogico;
 	private int stockFisico;
 	
-	public CargaDetalle() {
+	public ItemCargaMovil() {
 		super();
-	}
-
-	public int getIdCargaDetalle() {
-		return idCargaDetalle;
-	}
-
-	public void setIdCargaDetalle(int idCargaDetalle) {
-		this.idCargaDetalle = idCargaDetalle;
 	}
 
 	public CargaMovil getCargaMovil() {
@@ -37,12 +28,12 @@ public class CargaDetalle {
 		this.producto = producto;
 	}
 
-	public int getStockInicial() {
-		return stockInicial;
+	public int getCantidadInicial() {
+		return cantidadInicial;
 	}
 
-	public void setStockInicial(int stockInicial) {
-		this.stockInicial = stockInicial;
+	public void setCantidadInicial(int cantidadInicial) {
+		this.cantidadInicial = cantidadInicial;
 	}
 
 	public int getStockLogico() {

@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="config"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/pabloc/uade_workspace/lib/sqljdbc_4.2/enu/sqljdbc42.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
+	<classpathentry kind="lib" path="/home/pabloc/uade_workspace/lib/mysql-connector-java-5.1.37/mysql-connector-java-5.1.37-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

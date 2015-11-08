@@ -3,8 +3,10 @@ package com.app.model;
 public class Sucursal {
 	
 	private int idSucursal;
-	private Float duracionTurno;
-	private String nombre;
+	private String descripcion;
+	private double latitud;
+	private double longitud;
+	private Provincia provincia;
 	
 	public Sucursal() {
 		super();
@@ -18,19 +20,35 @@ public class Sucursal {
 		this.idSucursal = idSucursal;
 	}
 
-	public Float getDuracionTurno() {
-		return duracionTurno;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDuracionTurno(Float duracionTurno) {
-		this.duracionTurno = duracionTurno;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public double getLatitud() {
+		return latitud;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setLatitud(double latitud) {
+		this.latitud = latitud;
+	}
+
+	public double getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(double longitud) {
+		this.longitud = longitud;
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 }

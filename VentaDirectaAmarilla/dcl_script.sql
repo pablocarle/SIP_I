@@ -28,10 +28,10 @@ create table viapago (
 );
 
 
-create table CondicionIVA (
-	CodigoCondIVA char(2) not null,
+create table condicioniva (
+	idCondicionIVA char(2) not null,
 	descripcion varchar(255),
-	constraint CondicionIVA_pk primary key (CodigoCondIVA)
+	constraint condicioniva_pk primary key (idCondicionIVA)
 );
 
 create table cliente (
@@ -41,13 +41,13 @@ create table cliente (
 	razonSocial varchar(255) not null,
 	tipoNif int, 
 	nif varchar(50),
-	codigocondIVA char(2) not null,
+	idCondicionIVA char(2) not null,
 	idViaPago int not null,
 	email varchar(255) null,
 	telefono varchar(25) null,
 	constraint clientes_pk primary key ( idCliente ),
-	constraint clientes_viapago_fk foreign key ( idViaPago ) references ViaPago ( idViaPago ),
-	constraint clientes_condicionIVA_fk foreign key ( codigocondIVA ) references condicionIVA (codigocondIVA)
+	constraint clientes_viapago_fk foreign key ( idViaPago ) references viapago ( idViaPago ),
+	constraint clientes_condicioniva_fk foreign key ( idCondicionIVA ) references condicioniva ( idCondicionIVA )
 );
 
 create unique index clientes_u_idx on cliente ( nif );
@@ -112,13 +112,14 @@ create table direcciones (
 	
 );
 
-create table chofer(
+create table chofer (
 	idChofer int not null,
 	nombre varchar(255) not null,
 	apellido varchar(255) not null,
 	estado bit not null,
-	idUsuario int 
-	constraint choferes_pk primary key ( idChofer )
+	idUsuario int,
+	constraint choferes_pk primary key ( idChofer ),
+	constraint choferes_usuarios_fk foreign key ( idUsuario ) references usuario ( idUsuario )
 );
 
 create table moviles(
@@ -147,7 +148,7 @@ create table posicionmovil (
 	constraint posicionmovil_movil_fk foreign key ( idMovil ) references moviles ( idMovil )
 );
 
-create table CargaMovil(
+create table cargamovil (
 	idCargaMovil int not null identity(1,1),
 	idJornada int not null,
 	idMovil int null,
@@ -169,14 +170,14 @@ create table productos (
 	constraint productos_pk primary key (idProducto)
 );
 
-create table ItemCargaMovil (
+create table itemcargamovil (
 	idCargaMovil int not null,
 	idProducto varchar(2) not null,
 	CantidadInicial int not null,
 	stockLogico int not null,
 	stockFisico int not null,
 	constraint cargadetalle_pk primary key ( idCargaMovil, idProducto ),
-	constraint cargadetalle_cargamovil_fk foreign key ( idCargaMovil ) references CargaMovil ( idCargaMovil ),
+	constraint cargadetalle_cargamovil_fk foreign key ( idCargaMovil ) references cargamovil ( idCargaMovil ),
 	constraint cargadetalle_producto_fk foreign key ( idProducto ) references productos ( idProducto )
 );
 
@@ -186,10 +187,10 @@ create table cargahorariochofer (
 	horaInicio datetime not null,
 	horaFin datetime not null,
 	constraint cargahorariochofer_pk primary key ( idCargaHorarioChofer ),
-	constraint cargahorariochofer_chofer_fk foreign key ( idCargaMovil ) references CargaMovil ( idCargaMovil )
+	constraint cargahorariochofer_chofer_fk foreign key ( idCargaMovil ) references cargamovil ( idCargaMovil )
 );
 
-create unique index cargadetalle_uidx on ItemCargaMovil ( idCargaMovil, idProducto );
+create unique index cargadetalle_uidx on itemcargamovil ( idCargaMovil, idProducto );
 
 create table pedidos(
 	idPedido int not null identity(1,1),
@@ -204,7 +205,7 @@ create table pedidos(
 	referenciaFactura varchar(255) null,
 	constraint pedidos_pk primary key ( idPedido ),
 	constraint pedidos_clientes_fk foreign key ( idCliente ) references cliente ( idCliente ),
-	constraint pedidos_cargamovil_fk foreign key ( idCargaMovil ) references CargaMovil ( idCargaMovil ),
+	constraint pedidos_cargamovil_fk foreign key ( idCargaMovil ) references cargamovil ( idCargaMovil ),
 	constraint pedidos_viapagos_fk foreign key ( idViaPago ) references viapago ( idViaPago ),
 	constraint pedidos_usuarios_fk foreign key ( idUsuario ) references usuario ( idUsuario ),
 	constraint pedidos_direcciones_fk foreign key ( idDireccion ) references direcciones ( idDireccion )
