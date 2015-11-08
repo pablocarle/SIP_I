@@ -4,6 +4,10 @@
 <!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.app.model.ItemCargaMovil" table="itemcargamovil">
+    	<id name="idItemCargaMovil" type="int">
+            <column name="idItemCargaMovil" />
+            <generator class="native" />
+        </id>
         <property name="cantidadInicial" type="int">
             <column name="cantidadInicial" />
         </property>

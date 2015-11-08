@@ -4,6 +4,10 @@
 <!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.app.model.CostoAsignacion" table="costoasignacion">
+        <id name="idCostoAsignacion" type="int">
+            <column name="idCostoAsignacion" />
+            <generator class="native" />
+        </id>
         <property name="pedidosEnCola" type="int">
             <column name="pedidosEnCola" />
         </property>

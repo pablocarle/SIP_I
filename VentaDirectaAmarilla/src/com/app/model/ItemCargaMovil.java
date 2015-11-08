@@ -2,6 +2,7 @@ package com.app.model;
 
 public class ItemCargaMovil {
 	
+	private int idItemCargaMovil;
 	private CargaMovil cargaMovil;
 	private Producto producto;
 	private int cantidadInicial;
@@ -50,5 +51,13 @@ public class ItemCargaMovil {
 
 	public void setStockFisico(int stockFisico) {
 		this.stockFisico = stockFisico;
+	}
+
+	public int getIdItemCargaMovil() {
+		return idItemCargaMovil;
+	}
+
+	public void setIdItemCargaMovil(int idItemCargaMovil) {
+		this.idItemCargaMovil = idItemCargaMovil;
 	}
 }

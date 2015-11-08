@@ -1,7 +1,8 @@
 package com.app.model;
 
 public class CostoAsignacion {
-	
+
+	private int idCostoAsignacion;
 	private Sucursal sucursal;
 	private double distanciaDesde;
 	private double distanciaHasta;
@@ -50,5 +51,13 @@ public class CostoAsignacion {
 
 	public void setCosto(double costo) {
 		this.costo = costo;
+	}
+
+	public int getIdCostoAsignacion() {
+		return idCostoAsignacion;
+	}
+
+	public void setIdCostoAsignacion(int idCostoAsignacion) {
+		this.idCostoAsignacion = idCostoAsignacion;
 	}
 }

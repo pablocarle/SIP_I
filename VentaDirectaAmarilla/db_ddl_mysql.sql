@@ -102,7 +102,6 @@ create table direcciones (
 	constraint direcciones_clientes_fk foreign key ( idCliente ) references cliente ( idCliente ),
 	constraint direcciones_localidades_fk foreign key ( idLocalidad ) references localidad ( idLocalidad ),
 	constraint direcciones_provincias_fk foreign key ( idProvincia ) references provincia ( idProvincia )
-	
 );
 
 create table chofer (
@@ -164,15 +163,18 @@ create table productos (
 );
 
 create table itemcargamovil (
+	idItemCargaMovil int not null auto_increment,
 	idCargaMovil int not null,
 	idProducto varchar(2) not null,
 	CantidadInicial int not null,
 	stockLogico int not null,
 	stockFisico int not null,
-	constraint cargadetalle_pk primary key ( idCargaMovil, idProducto ),
+	constraint cargadetalle_pk primary key ( idItemCargaMovil ),
 	constraint cargadetalle_cargamovil_fk foreign key ( idCargaMovil ) references cargamovil ( idCargaMovil ),
 	constraint cargadetalle_producto_fk foreign key ( idProducto ) references productos ( idProducto )
 );
+
+create unique index itemcargamovil_uidx on itemcargamovil ( idCargaMovil, idProducto );
 
 create table cargahorariochofer (
 	idCargaHorarioChofer int not null auto_increment,
@@ -206,15 +208,18 @@ create table pedidos(
 
 
 create table pedidodetalle (
+	idPedidoDetalle int not null auto_increment,
 	idPedido int not null,
 	idProducto varchar(2) not null,
 	cantidad int not null,
 	cantidadEntregada int not null,
 	cantidadFacturada int not null,
-	constraint pedidodetalle_pk primary key ( idPedido, idProducto ),
+	constraint pedidodetalle_pk primary key ( idPedidoDetalle ),
 	constraint pedidodetalle_pedido_fk foreign key ( idPedido ) references pedidos ( idPedido ),
 	constraint pedidodetalle_producto_fk foreign key ( idProducto ) references productos ( idProducto )
 );
+
+create unique index pedidodetalle_uidx on pedidodetalle ( idPedido, idProducto );
 
 create table turnos (
 	idTurno int not null auto_increment,
@@ -234,21 +239,26 @@ create table estadospedido (
 );
 
 create table estadopedido (
+	idEstadoPedido int not null auto_increment,
 	idPedido int not null,
-	idEstadoPedido int not null,
+	idEstado int not null,
 	fecha datetime not null,
 	idUsuario int not null,
-	constraint estadopedido_pk primary key ( idPedido, idEstadoPedido, fecha ),
+	constraint estadopedido_pk primary key ( idEstadoPedido ),
 	constraint estadopedido_pedido_fk foreign key ( idPedido ) references pedidos ( idPedido ),
 	constraint estadopedido_usuarios_fk foreign key ( idUsuario ) references usuario ( idUsuario ),
-	constraint estadopedido_estados_fk foreign key ( idEstadoPedido ) references estadospedido ( idEstadoPedido )
+	constraint estadopedido_estados_fk foreign key ( idEstado ) references estadospedido ( idEstadoPedido )
 );
 
+create unique index estadopedido_uidx on estadopedido ( idPedido, idEstadoPedido, fecha );
+
 create table costoasignacion (
+	idCostoAsignacion int not null auto_increment,
 	idSucursal int not null,
 	distanciaDesde float not null,
 	distanciaHasta float not null,
 	pedidosEnCola int not null,
 	costo float not null,
+    constraint costoasignacion_pk primary key ( idCostoAsignacion ),
 	constraint pedidoscostos_sucursal_fk foreign key ( idSucursal ) references sucursal ( idSucursal )
 );

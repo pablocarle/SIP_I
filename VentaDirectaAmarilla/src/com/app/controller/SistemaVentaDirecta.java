@@ -20,36 +20,23 @@ public class SistemaVentaDirecta {
 		return instancia;
 	}
 	
-	private Configuration hbmConfig = null;
-	private SessionFactory factory = null;
+	private static final SessionFactory factory = nuevaSessionFactory();
 	
 	private SistemaVentaDirecta() {
 		super();
-		initConnection();
 	}
 	
-	public static void main(String[] args) {
-		SistemaVentaDirecta vd = SistemaVentaDirecta.getSistema();
-		vd.getSessionFactory();
+	private static SessionFactory nuevaSessionFactory() {
+		return new Configuration().configure().buildSessionFactory();
 	}
 
-	private void initConnection() {
-		hbmConfig = new Configuration().configure();
-		System.out.println("Init HBM: " + hbmConfig.getProperties());
-		factory = hbmConfig.buildSessionFactory();
-		MapperGenerico<Usuario, Integer> usuarios = new MapperGenericoImpl<Usuario, Integer>();
-		Collection<Usuario> usuariosTodos = usuarios.buscarTodos(Usuario.class);
-		System.out.println("Encontrados " + usuariosTodos.size());
+	public static void main(String[] args) {
+		MapperGenerico<Usuario, Integer> usuarioMapper = new MapperGenericoImpl<Usuario, Integer>();
+		Collection<Usuario> usuarios = usuarioMapper.buscarTodos(Usuario.class);
+		System.out.println("Encontrados " + usuarios.size());
 	}
-	
-	public SessionFactory getSessionFactory() {
-		if (factory == null && hbmConfig != null) {
-			factory = hbmConfig.buildSessionFactory();
-			return factory;
-		} else if (factory != null) {
-			return factory;
-		} else {
-			throw new IllegalStateException("No se detecto configuracion hibernate activa");
-		}
+
+	public static SessionFactory getSessionFactory() {
+		return factory;
 	}
 }

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PedidoEstado {
 	
+	private int idPedidoEstado;
 	private Pedido pedido;
 	private EstadoPedido estado;
 	private Date fecha;
@@ -43,5 +44,13 @@ public class PedidoEstado {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public int getIdPedidoEstado() {
+		return idPedidoEstado;
+	}
+
+	public void setIdPedidoEstado(int idPedidoEstado) {
+		this.idPedidoEstado = idPedidoEstado;
 	}
 }

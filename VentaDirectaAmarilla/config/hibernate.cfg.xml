@@ -20,6 +20,7 @@
   <property name="hibernate.format_sql">true</property>
   <mapping resource="com/app/model/Cliente.hbm.xml"/>
   <mapping resource="com/app/model/Pedido.hbm.xml"/>
+  <mapping resource="com/app/model/PedidoDetalle.hbm.xml"/>
   <mapping resource="com/app/model/Direccion.hbm.xml"/>
   <mapping resource="com/app/model/Movil.hbm.xml"/>
   <mapping resource="com/app/model/Usuario.hbm.xml"/>
@@ -27,7 +28,6 @@
   <mapping resource="com/app/model/CargaHorarioChofer.hbm.xml"/>
   <mapping resource="com/app/model/CargaMovil.hbm.xml"/>
   <mapping resource="com/app/model/Chofer.hbm.xml"/>
-  <mapping resource="com/app/model/ItemPedido.hbm.xml"/>
   <mapping resource="com/app/model/Jornada.hbm.xml"/>
   <mapping resource="com/app/model/Localidad.hbm.xml"/>
   <mapping resource="com/app/model/Producto.hbm.xml"/>
@@ -36,5 +36,9 @@
   <mapping resource="com/app/model/Sucursal.hbm.xml"/>
   <mapping resource="com/app/model/Turno.hbm.xml"/>
   <mapping resource="com/app/model/ViaPago.hbm.xml"/>
+  <mapping resource="com/app/model/CostoAsignacion.hbm.xml"/>
+  <mapping resource="com/app/model/EstadoPedido.hbm.xml"/>
+  <mapping resource="com/app/model/PedidoEstado.hbm.xml"/>
+  <mapping resource="com/app/model/CondicionIVA.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>

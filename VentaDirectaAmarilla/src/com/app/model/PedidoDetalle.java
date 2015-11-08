@@ -2,6 +2,7 @@ package com.app.model;
 
 public class PedidoDetalle {
 
+	private int idPedidoDetalle;
 	private Pedido pedido;
 	private Producto producto;
 	private int cantidad;
@@ -50,5 +51,13 @@ public class PedidoDetalle {
 
 	public void setCantidadEntregada(int cantidadEntregada) {
 		this.cantidadEntregada = cantidadEntregada;
+	}
+
+	public int getIdPedidoDetalle() {
+		return idPedidoDetalle;
+	}
+
+	public void setIdPedidoDetalle(int idPedidoDetalle) {
+		this.idPedidoDetalle = idPedidoDetalle;
 	}
 }

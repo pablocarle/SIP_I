@@ -15,10 +15,12 @@ public class Producto {
 	public void setIdProducto(int idProducto) {
 		this.idProducto = idProducto;
 	}
-	public String getDescripcion() {
+
+	public String getNombre() {
 		return nombre;
 	}
-	public void setDescripcion(String nombre) {
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 }
