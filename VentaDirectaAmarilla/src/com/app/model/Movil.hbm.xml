@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Movil" table="moviles">
+        <id name="idMovil" type="int">
+            <column name="idMovil" />
+            <generator class="native" />
+        </id>
+        <property name="marca" type="java.lang.String">
+            <column name="marca" />
+        </property>
+        <property name="modelo" type="java.lang.String">
+            <column name="modelo" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" />
+        </property>
+    </class>
+</hibernate-mapping>

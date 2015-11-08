@@ -3,16 +3,13 @@
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
-  
-<!--   Config de SQLSERVER: -->
-<!--   <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
-<!--   <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property> -->
-<!--   <property name="hibernate.connection.username">pcarle</property> -->
-<!--   <property name="hibernate.connection.password">654321</property> -->
-<!--   <property name="hibernate.connection.url">jdbc:sqlserver://localhost;databaseName=ventadirecta;instanceName=SQLEXPRESS;</property> -->
-  
-<!--   Config de MySQL -->
-  
+  <!--   Config de SQLSERVER: 
+   <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> 
+   <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property> 
+   <property name="hibernate.connection.username">pcarle</property> 
+   <property name="hibernate.connection.password">654321</property> 
+   <property name="hibernate.connection.url">jdbc:sqlserver://localhost;databaseName=ventadirecta;instanceName=SQLEXPRESS;</property> 
+   Config de MySQL -->
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.connection.username">ventadirecta</property>
@@ -26,7 +23,7 @@
   <mapping resource="com/app/model/Direccion.hbm.xml"/>
   <mapping resource="com/app/model/Movil.hbm.xml"/>
   <mapping resource="com/app/model/Usuario.hbm.xml"/>
-  <mapping resource="com/app/model/CargaDetalle.hbm.xml"/>
+  <mapping resource="com/app/model/ItemCargaMovil.hbm.xml"/>
   <mapping resource="com/app/model/CargaHorarioChofer.hbm.xml"/>
   <mapping resource="com/app/model/CargaMovil.hbm.xml"/>
   <mapping resource="com/app/model/Chofer.hbm.xml"/>

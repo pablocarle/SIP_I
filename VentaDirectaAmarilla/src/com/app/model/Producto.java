@@ -3,7 +3,7 @@ package com.app.model;
 public class Producto {
 	
 	private int idProducto;
-	private String descripcion;
+	private String nombre;
 
 	public Producto() {
 		super();
@@ -16,9 +16,9 @@ public class Producto {
 		this.idProducto = idProducto;
 	}
 	public String getDescripcion() {
-		return descripcion;
+		return nombre;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescripcion(String nombre) {
+		this.nombre = nombre;
 	}
 }

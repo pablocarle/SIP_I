@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.PedidoDetalle" table="pedidodetalle">
+        <property name="cantidad" type="int">
+            <column name="cantidad" />
+        </property>
+        <many-to-one name="pedido" class="com.app.model.Pedido" fetch="join">
+            <column name="idPedido" />
+        </many-to-one>
+        <many-to-one name="producto" class="com.app.model.Producto" fetch="join">
+            <column name="idProducto" />
+        </many-to-one>
+        <property name="cantidadFacturada" type="int">
+            <column name="cantidadFacturada" />
+        </property>
+        <property name="cantidadEntregada" type="int">
+            <column name="cantidadEntregada" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Usuario" table="usuario">
+        <id name="idUsuario" type="int">
+            <column name="idUsuario" />
+            <generator class="native" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+        <property name="apellido" type="java.lang.String">
+            <column name="apellido" />
+        </property>
+        <property name="login" type="java.lang.String">
+            <column name="login" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" />
+        </property>
+    </class>
+</hibernate-mapping>

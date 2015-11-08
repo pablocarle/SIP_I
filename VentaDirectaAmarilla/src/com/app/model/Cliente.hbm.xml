@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.Cliente" table="cliente">
+        <id name="idCliente" type="int">
+            <column name="idCliente" />
+            <generator class="native" />
+        </id>
+        <property name="apellido" type="java.lang.String">
+            <column name="apellido" />
+        </property>
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
+        </property>
+        <property name="razonSocial" type="java.lang.String">
+            <column name="razonSocial" />
+        </property>
+        <property name="tipoNif" type="int">
+            <column name="tipoNif" />
+        </property>
+        <property name="nif" type="java.lang.String">
+            <column name="nif" />
+        </property>
+        <many-to-one name="condicionIVA" class="com.app.model.CondicionIVA" fetch="join">
+            <column name="idCondicionIVA" />
+        </many-to-one>
+        <many-to-one name="viaPago" class="com.app.model.ViaPago" fetch="join">
+            <column name="idViaPago" />
+        </many-to-one>
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+        <property name="telefono" type="java.lang.String">
+            <column name="telefono" />
+        </property>
+        <bag name="direcciones" table="direcciones" inverse="false" lazy="true">
+            <key>
+                <column name="idCliente" />
+            </key>
+            <one-to-many class="com.app.model.Direccion" />
+        </bag>
+        <bag name="pedidos" table="pedido" inverse="false" lazy="true">
+            <key>
+                <column name="idCliente" />
+            </key>
+            <one-to-many class="com.app.model.Pedido" />
+        </bag>
+    </class>
+</hibernate-mapping>

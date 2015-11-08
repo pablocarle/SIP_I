@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.app.model.CostoAsignacion" table="costoasignacion">
+        <property name="pedidosEnCola" type="int">
+            <column name="pedidosEnCola" />
+        </property>
+        <many-to-one name="sucursal" class="com.app.model.Sucursal" fetch="join">
+            <column name="idSucursal" />
+        </many-to-one>
+        <property name="distanciaDesde" type="double">
+            <column name="distanciaDesde" />
+        </property>
+        <property name="distanciaHasta" type="double">
+            <column name="distanciaHasta" />
+        </property>
+        <property name="costo" type="double">
+            <column name="costo" />
+        </property>
+    </class>
+</hibernate-mapping>
