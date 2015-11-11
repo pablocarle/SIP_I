@@ -3,22 +3,22 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Sucursal" table="sucursal">
-        <id name="idSucursal" type="int">
-            <column name="idSucursal" />
+    <class name="com.app.model.PosicionMovil" table="posicionmovil">
+        <id name="idEvento" type="int">
+            <column name="idEvento" />
             <generator class="native" />
         </id>
-        <property name="descripcion" type="java.lang.String">
-            <column name="descripcion" />
-        </property>
+        <many-to-one name="movil" class="com.app.model.Movil" fetch="join">
+            <column name="idMovil" />
+        </many-to-one>
         <property name="latitud" type="double">
             <column name="latitud" />
         </property>
         <property name="longitud" type="double">
             <column name="longitud" />
         </property>
-        <many-to-one name="provincia" class="com.app.model.Provincia" fetch="join">
-            <column name="idProvincia" />
-        </many-to-one>
+        <property name="fechaEvento" type="java.util.Date">
+            <column name="fechaEvento" />
+        </property>
     </class>
 </hibernate-mapping>

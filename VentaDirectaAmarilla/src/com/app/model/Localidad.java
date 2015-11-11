@@ -3,7 +3,7 @@ package com.app.model;
 public class Localidad {
 	
 	private int idLocalidad;
-	private int idProvincia;
+	private Provincia provincia;
 	private String nombre;
 	
 	public Localidad() {
@@ -18,19 +18,19 @@ public class Localidad {
 		this.idLocalidad = idLocalidad;
 	}
 
-	public int getIdProvincia() {
-		return idProvincia;
-	}
-
-	public void setIdProvincia(int idProvincia) {
-		this.idProvincia = idProvincia;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
 }

@@ -1,33 +1,51 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Pedido" table="PEDIDO">
-        <id name="cliente" type="com.app.model.Cliente">
-            <column name="CLIENTE" />
-            <generator class="assigned" />
+    <class name="com.app.model.Pedido" table="pedidos">
+        <id name="idPedido" type="int">
+            <column name="idPedido" />
+            <generator class="native" />
         </id>
-        <bag name="items" table="ITEMPEDIDO" inverse="false" lazy="true">
+        <bag name="items" table="pedidodetalle" inverse="false" lazy="true">
             <key>
-                <column name="CLIENTE" />
+                <column name="idPedido" />
             </key>
-            <one-to-many class="com.app.model.ItemPedido" />
+            <one-to-many class="com.app.model.PedidoDetalle" />
         </bag>
+        <many-to-one name="cliente" class="com.app.model.Cliente" fetch="join">
+            <column name="idCliente" />
+        </many-to-one>
+        <many-to-one name="direccion" class="com.app.model.Direccion" fetch="join">
+            <column name="idDireccion" />
+        </many-to-one>
         <many-to-one name="cargaMovil" class="com.app.model.CargaMovil" fetch="join">
-            <column name="CARGAMOVIL" />
+            <column name="idCargaMovil" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.app.model.Usuario" fetch="join">
+            <column name="idUsuario" />
         </many-to-one>
         <property name="fechaEntrega" type="java.util.Date">
-            <column name="FECHAENTREGA" />
+            <column name="fechaEntrega" />
         </property>
         <property name="horaDesde" type="java.util.Date">
-            <column name="HORADESDE" />
+            <column name="horaDesde" />
         </property>
         <property name="horaHasta" type="java.util.Date">
-            <column name="HORAHASTA" />
+            <column name="horaHasta" />
         </property>
         <many-to-one name="viaPago" class="com.app.model.ViaPago" fetch="join">
-            <column name="VIAPAGO" />
+            <column name="idViaPago" />
         </many-to-one>
+        <property name="referenciaFactura" type="java.lang.String">
+            <column name="referenciaFactura" />
+        </property>
+        <bag name="estados" table="PEDIDOESTADO" inverse="false" lazy="true">
+            <key>
+                <column name="idPedido" />
+            </key>
+            <one-to-many class="com.app.model.PedidoEstado" />
+        </bag>
     </class>
 </hibernate-mapping>

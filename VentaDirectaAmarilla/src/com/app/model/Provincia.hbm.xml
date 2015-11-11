@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Provincia" table="PROVINCIA">
+    <class name="com.app.model.Provincia" table="provincia">
         <id name="idProvincia" type="int">
-            <column name="IDPROVINCIA" />
-            <generator class="assigned" />
+            <column name="idProvincia" />
+            <generator class="native" />
         </id>
         <property name="nombre" type="java.lang.String">
-            <column name="NOMBRE" />
+            <column name="nombre" />
         </property>
+        <bag name="localidades" table="localidad" inverse="false" lazy="true">
+            <key>
+                <column name="idProvincia" />
+            </key>
+            <one-to-many class="com.app.model.Localidad" />
+        </bag>
     </class>
 </hibernate-mapping>

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.CargaHorarioChofer" table="CARGAHORARIOCHOFER">
+    <class name="com.app.model.CargaHorarioChofer" table="cargahorariochofer">
         <id name="idCargaHorarioChofer" type="int">
-            <column name="IDCARGAHORARIOCHOFER" />
-            <generator class="assigned" />
+            <column name="idCargaHorarioChofer" />
+            <generator class="native" />
         </id>
         <many-to-one name="cargaMovil" class="com.app.model.CargaMovil" fetch="join">
-            <column name="CARGAMOVIL" />
+            <column name="idCargaMovil" />
         </many-to-one>
         <property name="horaInicio" type="java.util.Date">
-            <column name="HORAINICIO" />
+            <column name="horaInicio" />
         </property>
         <property name="horaFin" type="java.util.Date">
-            <column name="HORAFIN" />
+            <column name="horaFin" />
         </property>
     </class>
 </hibernate-mapping>

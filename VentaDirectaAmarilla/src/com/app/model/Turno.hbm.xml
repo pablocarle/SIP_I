@@ -1,15 +1,24 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Turno" table="TURNO">
+    <class name="com.app.model.Turno" table="turno">
         <id name="idTurno" type="int">
-            <column name="IDTURNO" />
-            <generator class="assigned" />
+            <column name="idTurno" />
+            <generator class="native" />
         </id>
-        <many-to-one name="sucursal" class="com.app.model.Sucursal" fetch="join">
-            <column name="SUCURSAL" />
+        <many-to-one name="jornada" class="com.app.model.Jornada" fetch="join">
+            <column name="idJornada" />
         </many-to-one>
+        <many-to-one name="pedido" class="com.app.model.Pedido" fetch="join">
+            <column name="idPedido" />
+        </many-to-one>
+        <property name="fechaDesde" type="java.util.Date">
+            <column name="fechaDesde" />
+        </property>
+        <property name="fechaHasta" type="java.util.Date">
+            <column name="fechaHasta" />
+        </property>
     </class>
 </hibernate-mapping>

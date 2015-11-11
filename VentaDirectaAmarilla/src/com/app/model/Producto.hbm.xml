@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Producto" table="PRODUCTO">
+    <class name="com.app.model.Producto" table="productos">
         <id name="idProducto" type="int">
-            <column name="IDPRODUCTO" />
-            <generator class="assigned" />
+            <column name="idProducto" />
+            <generator class="native" />
         </id>
-        <property name="descripcion" type="java.lang.String">
-            <column name="DESCRIPCION" />
+        <property name="nombre" type="java.lang.String">
+            <column name="nombre" />
         </property>
     </class>
 </hibernate-mapping>

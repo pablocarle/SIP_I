@@ -3,7 +3,7 @@ package com.app.model;
 public class ViaPago {
 	
 	private int idViaPago;
-	private String nombre;
+	private String descripcion;
 	
 	public ViaPago() {
 		super();
@@ -17,11 +17,11 @@ public class ViaPago {
 		this.idViaPago = idViaPago;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 }

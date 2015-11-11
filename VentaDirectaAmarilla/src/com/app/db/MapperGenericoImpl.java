@@ -13,7 +13,7 @@ import com.app.controller.SistemaVentaDirecta;
 
 public class MapperGenericoImpl<T, ID extends Serializable> implements MapperGenerico<T, ID> {
 
-	private SessionFactory sessionFactory = SistemaVentaDirecta.getSistema().getSessionFactory(); 
+	private SessionFactory sessionFactory = SistemaVentaDirecta.getSessionFactory(); 
 	
 	@Override
 	public Session getSession() {
@@ -51,7 +51,7 @@ public class MapperGenericoImpl<T, ID extends Serializable> implements MapperGen
 		Session session = this.getSession();
 		Transaction tr = session.beginTransaction();
 		List<T> t = null;
-		Query query = session.createQuery("from Cliente");
+		Query query = session.createQuery("from " + clasz.getCanonicalName());
 		t = query.list();
 		tr.commit();
 		return t;

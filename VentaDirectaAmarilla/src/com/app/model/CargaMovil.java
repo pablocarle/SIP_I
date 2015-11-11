@@ -5,25 +5,34 @@ import java.util.Collection;
 public class CargaMovil {
 	
 	private int idCargaMovil;
-	private Sucursal sucursal;
+	private Jornada jornada;
 	private Movil movil;
 	private Chofer chofer;
 	private ReferenciaMovil referenciaMovil;
 	private String orderProceso;
 	private String cms;
-	private Collection<CargaDetalle> detalles;
+	private boolean estado;
+	private Collection<ItemCargaMovil> detalles;
 	private Collection<CargaHorarioChofer> choferes;
 	
 	public CargaMovil() {
 		super();
 	}
 
-	public Sucursal getSucursal() {
-		return sucursal;
+	public int getIdCargaMovil() {
+		return idCargaMovil;
 	}
 
-	public void setSucursal(Sucursal sucursal) {
-		this.sucursal = sucursal;
+	public void setIdCargaMovil(int idCargaMovil) {
+		this.idCargaMovil = idCargaMovil;
+	}
+
+	public Jornada getJornada() {
+		return jornada;
+	}
+
+	public void setJornada(Jornada jornada) {
+		this.jornada = jornada;
 	}
 
 	public Movil getMovil() {
@@ -42,14 +51,6 @@ public class CargaMovil {
 		this.chofer = chofer;
 	}
 
-	public ReferenciaMovil getReferenciaMovil() {
-		return referenciaMovil;
-	}
-
-	public void setReferenciaMovil(ReferenciaMovil referenciaMovil) {
-		this.referenciaMovil = referenciaMovil;
-	}
-
 	public String getOrderProceso() {
 		return orderProceso;
 	}
@@ -66,19 +67,19 @@ public class CargaMovil {
 		this.cms = cms;
 	}
 
-	public int getIdCargaMovil() {
-		return idCargaMovil;
+	public boolean isEstado() {
+		return estado;
 	}
 
-	public void setIdCargaMovil(int idCargaMovil) {
-		this.idCargaMovil = idCargaMovil;
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
-	public Collection<CargaDetalle> getDetalles() {
+	public Collection<ItemCargaMovil> getDetalles() {
 		return detalles;
 	}
 
-	public void setDetalles(Collection<CargaDetalle> detalles) {
+	public void setDetalles(Collection<ItemCargaMovil> detalles) {
 		this.detalles = detalles;
 	}
 
@@ -88,5 +89,13 @@ public class CargaMovil {
 
 	public void setChoferes(Collection<CargaHorarioChofer> choferes) {
 		this.choferes = choferes;
+	}
+
+	public ReferenciaMovil getReferenciaMovil() {
+		return referenciaMovil;
+	}
+
+	public void setReferenciaMovil(ReferenciaMovil referenciaMovil) {
+		this.referenciaMovil = referenciaMovil;
 	}
 }

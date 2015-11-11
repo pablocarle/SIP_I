@@ -3,14 +3,11 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.Localidad" table="localidad">
-        <id name="idLocalidad" type="int">
-            <column name="idLocalidad" />
+    <class name="com.app.model.EstadoPedido" table="estadospedido">
+        <id name="idEstadoPedido" type="int">
+            <column name="idEstadoPedido" />
             <generator class="native" />
         </id>
-        <many-to-one name="provincia" class="com.app.model.Provincia" fetch="join">
-            <column name="idProvincia" />
-        </many-to-one>
         <property name="nombre" type="java.lang.String">
             <column name="nombre" />
         </property>

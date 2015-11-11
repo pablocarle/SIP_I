@@ -1,40 +1,43 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 04/11/2015 20:33:49 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 08/11/2015 17:13:54 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.app.model.CargaMovil" table="CARGAMOVIL">
+    <class name="com.app.model.CargaMovil" table="cargamovil">
         <id name="idCargaMovil" type="int">
-            <column name="IDCARGAMOVIL" />
-            <generator class="assigned" />
+            <column name="idCargaMovil" />
+            <generator class="native" />
         </id>
-        <many-to-one name="sucursal" class="com.app.model.Sucursal" fetch="join">
-            <column name="SUCURSAL" />
+        <many-to-one name="jornada" class="com.app.model.Jornada" fetch="join">
+            <column name="idJornada" />
         </many-to-one>
         <many-to-one name="movil" class="com.app.model.Movil" fetch="join">
-            <column name="MOVIL" />
+            <column name="idMovil" />
         </many-to-one>
         <many-to-one name="chofer" class="com.app.model.Chofer" fetch="join">
-            <column name="CHOFER" />
+            <column name="idChofer" />
         </many-to-one>
         <many-to-one name="referenciaMovil" class="com.app.model.ReferenciaMovil" fetch="join">
-            <column name="REFERENCIAMOVIL" />
+            <column name="idReferenciaMovil" />
         </many-to-one>
         <property name="orderProceso" type="java.lang.String">
-            <column name="ORDERPROCESO" />
+            <column name="ordenProceso" />
         </property>
         <property name="cms" type="java.lang.String">
-            <column name="CMS" />
+            <column name="cms" />
         </property>
-        <bag name="detalles" table="CARGADETALLE" inverse="false" lazy="true">
+        <property name="estado" type="boolean">
+            <column name="estado" />
+        </property>
+        <bag name="detalles" table="itemcargamovil" inverse="false" lazy="true">
             <key>
-                <column name="IDCARGAMOVIL" />
+                <column name="idCargaMovil" />
             </key>
-            <one-to-many class="com.app.model.CargaDetalle" />
+            <one-to-many class="com.app.model.ItemCargaMovil" />
         </bag>
-        <bag name="choferes" table="CARGAHORARIOCHOFER" inverse="false" lazy="true">
+        <bag name="choferes" table="cargahorariochofer" inverse="false" lazy="true">
             <key>
-                <column name="IDCARGAMOVIL" />
+                <column name="idCargaMovil" />
             </key>
             <one-to-many class="com.app.model.CargaHorarioChofer" />
         </bag>
