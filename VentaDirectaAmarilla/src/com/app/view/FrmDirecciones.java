@@ -1,13 +1,17 @@
 package com.app.view;
 
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+
+import com.app.controller.SistemaVentaDirecta;
+import com.app.model.Direccion;
 
 public class FrmDirecciones extends JFrame {
 
@@ -16,7 +20,8 @@ public class FrmDirecciones extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	private JList<Direccion> direcciones;
+	private int idCliente;
 
 	/**
 	 * Launch the application.
@@ -25,7 +30,7 @@ public class FrmDirecciones extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrmDirecciones frame = new FrmDirecciones();
+					FrmDirecciones frame = new FrmDirecciones(1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +42,9 @@ public class FrmDirecciones extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FrmDirecciones() {
+	public FrmDirecciones(int idCliente) {
+		super();
+		this.idCliente = idCliente;
 		setTitle("Direcciones");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -58,9 +65,15 @@ public class FrmDirecciones extends JFrame {
 		lblParaEstablecerUna.setBounds(10, 11, 403, 14);
 		contentPane.add(lblParaEstablecerUna);
 		
-		table = new JTable();
-		table.setBounds(10, 36, 403, 170);
-		contentPane.add(table);
+		direcciones = new JList<Direccion>();
+		direcciones.setBounds(10, 36, 403, 170);
+		contentPane.add(direcciones);
+		
+		cargarDatos();
 	}
 
+	private void cargarDatos() {
+		List<Direccion> direcciones = SistemaVentaDirecta.getSistema().obtenerDirecciones(idCliente);
+		direcciones.addAll(direcciones);
+	}
 }

@@ -21,6 +21,11 @@ public class Direccion {
 	public Direccion() {
 		super();
 	}
+	
+	@Override
+	public String toString() {
+		return localidad.getProvincia() + ", " + localidad + ", " + calle + " " + numero;
+	}
 
 	public int getIdDireccion() {
 		return idDireccion;

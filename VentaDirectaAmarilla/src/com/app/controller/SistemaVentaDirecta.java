@@ -11,6 +11,8 @@ import com.app.db.ClienteMapper;
 import com.app.db.ClienteMapperImpl;
 import com.app.db.CondicionIVAMapper;
 import com.app.db.CondicionIVAMapperImpl;
+import com.app.db.DireccionMapper;
+import com.app.db.DireccionMapperImpl;
 import com.app.db.JornadaMapper;
 import com.app.db.JornadaMapperImpl;
 import com.app.db.LocalidadMapper;
@@ -25,6 +27,7 @@ import com.app.db.ViaPagoMapper;
 import com.app.db.ViaPagoMapperImpl;
 import com.app.model.Cliente;
 import com.app.model.CondicionIVA;
+import com.app.model.Direccion;
 import com.app.model.Localidad;
 import com.app.model.Provincia;
 import com.app.model.Sucursal;
@@ -51,6 +54,7 @@ public class SistemaVentaDirecta {
 	private JornadaMapper jornadaMapper = new JornadaMapperImpl();
 	private SucursalMapper sucursalMapper = new SucursalMapperImpl();
 	private ClienteMapper clienteMapper = new ClienteMapperImpl();
+	private DireccionMapper dirMapper = new DireccionMapperImpl();
 	
 	private SistemaVentaDirecta() {
 		super();
@@ -100,4 +104,7 @@ public class SistemaVentaDirecta {
 		return new ArrayList<Cliente>(clienteMapper.buscarPorMultiple(idCliente, nombre, apellido, razonSocial, telefono, numero, calle));
 	}
 
+	public List<Direccion> obtenerDirecciones(int idCliente) {
+		return new ArrayList<Direccion>(dirMapper.buscarDeCliente(idCliente));
+	}
 }
