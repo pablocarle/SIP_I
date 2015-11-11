@@ -8,6 +8,11 @@ public class CondicionIVA {
 	public CondicionIVA() {
 		super();
 	}
+	
+	@Override
+	public String toString() {
+		return descripcion;
+	}
 
 	public int getIdCondicionIVA() {
 		return idCondicionIVA;

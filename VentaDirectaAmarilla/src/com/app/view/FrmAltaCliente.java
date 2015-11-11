@@ -1,6 +1,7 @@
 package com.app.view;
 
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,6 +11,15 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import com.app.controller.SistemaVentaDirecta;
+import com.app.model.CondicionIVA;
+import com.app.model.Localidad;
+import com.app.model.Provincia;
+import com.app.model.ViaPago;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmAltaCliente extends JFrame {
 
@@ -32,7 +42,7 @@ public class FrmAltaCliente extends JFrame {
 	private JLabel lblPiso;
 	private JLabel lblDepartamento;
 	private JLabel lblProvincia;
-	private JComboBox<String> cmbLocalidad;
+	private JComboBox<Localidad> cmbLocalidad;
 	private JLabel lblLocalidad;
 	private JTextField txtNumeroDocumento;
 	private JComboBox<String> cmbTipoDocumento;
@@ -48,8 +58,9 @@ public class FrmAltaCliente extends JFrame {
 	private JTextField txtCasa;
 	private JTextField txtChacra;
 	private JTextField txtQuinta;
-	private JComboBox<String> cmbViaPago;
-	private JComboBox<String> cmbCondicionIVA;
+	private JComboBox<Provincia> cmbProvincias;
+	private JComboBox<ViaPago> cmbViaPago;
+	private JComboBox<CondicionIVA> cmbCondicionIVA;
 	private JLabel lblViaPago;
 	private JLabel lblCondicionIva;
 	private JPanel panelUbicacionGeografica;
@@ -229,15 +240,29 @@ public class FrmAltaCliente extends JFrame {
 		lblDepartamento.setBounds(143, 83, 94, 14);
 		panelDatosDireccion.add(lblDepartamento);
 		
-		JComboBox<String> cmbProvincia = new JComboBox<String>();
-		cmbProvincia.setBounds(83, 11, 118, 20);
-		panelDatosDireccion.add(cmbProvincia);
+		cmbProvincias = new JComboBox<Provincia>();
+		cmbProvincias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Provincia prov = (Provincia) cmbProvincias.getSelectedItem();
+				if (prov != null) {
+					for (int i = 0; i < cmbLocalidad.getItemCount(); i++) {
+						cmbLocalidad.removeItemAt(i);
+					}
+					List<Localidad> localidades = SistemaVentaDirecta.getSistema().obtenerLocalidades(prov.getIdProvincia());
+					for (Localidad l : localidades) {
+						cmbLocalidad.addItem(l);
+					}
+				}
+			}
+		});
+		cmbProvincias.setBounds(83, 11, 118, 20);
+		panelDatosDireccion.add(cmbProvincias);
 		
 		lblProvincia = new JLabel("Provincia");
 		lblProvincia.setBounds(10, 14, 63, 14);
 		panelDatosDireccion.add(lblProvincia);
 		
-		cmbLocalidad = new JComboBox<String>();
+		cmbLocalidad = new JComboBox<Localidad>();
 		cmbLocalidad.setBounds(305, 11, 146, 20);
 		panelDatosDireccion.add(cmbLocalidad);
 		
@@ -325,11 +350,11 @@ public class FrmAltaCliente extends JFrame {
 		tabbedPane.addTab("Datos Comerciales", null, panelDatosComerciales, null);
 		panelDatosComerciales.setLayout(null);
 		
-		cmbViaPago = new JComboBox<String>();
+		cmbViaPago = new JComboBox<ViaPago>();
 		cmbViaPago.setBounds(99, 11, 98, 20);
 		panelDatosComerciales.add(cmbViaPago);
 		
-		cmbCondicionIVA = new JComboBox<String>();
+		cmbCondicionIVA = new JComboBox<CondicionIVA>();
 		cmbCondicionIVA.setBounds(99, 42, 98, 20);
 		panelDatosComerciales.add(cmbCondicionIVA);
 		
@@ -370,5 +395,28 @@ public class FrmAltaCliente extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(431, 294, 89, 23);
 		contentPane.add(btnCancelar);
+		
+		cargarDatos();
+	}
+
+	private void cargarDatos() {
+		cmbTipoDocumento.addItem("DNI");
+		cmbTipoDocumento.addItem("CUIL");
+		cmbTipoDocumento.addItem("CUIT");
+		
+		List<Provincia> provincias = SistemaVentaDirecta.getSistema().obtenerProvincias();
+		for (Provincia prov : provincias) {
+			cmbProvincias.addItem(prov);
+		}
+		
+		List<ViaPago> viasPago = SistemaVentaDirecta.getSistema().obtenerViasPago();
+		for (ViaPago vp : viasPago) {
+			cmbViaPago.addItem(vp);
+		}
+		
+		List<CondicionIVA> condIva = SistemaVentaDirecta.getSistema().obtenerCondicionesIVA();
+		for (CondicionIVA ci : condIva) {
+			cmbCondicionIVA.addItem(ci);
+		}
 	}
 }

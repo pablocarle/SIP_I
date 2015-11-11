@@ -12,6 +12,11 @@ public class Provincia {
 		super();
 	}
 	
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
 	public int getIdProvincia() {
 		return idProvincia;
 	}

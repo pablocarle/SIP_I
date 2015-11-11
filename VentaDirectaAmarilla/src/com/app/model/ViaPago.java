@@ -9,6 +9,11 @@ public class ViaPago {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return descripcion;
+	}
+	
 	public int getIdViaPago() {
 		return idViaPago;
 	}

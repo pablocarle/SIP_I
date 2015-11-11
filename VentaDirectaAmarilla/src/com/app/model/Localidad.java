@@ -10,6 +10,11 @@ public class Localidad {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
 	public int getIdLocalidad() {
 		return idLocalidad;
 	}
