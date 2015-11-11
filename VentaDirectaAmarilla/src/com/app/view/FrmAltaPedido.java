@@ -99,7 +99,7 @@ public class FrmAltaPedido extends JFrame {
 		JButton btnBuscarCliente = new JButton("...");
 		btnBuscarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrmBuscarCliente frmBuscarCliente = FrmBuscarCliente.getInstancia();
+				JFrame frmBuscarCliente = new FrmBuscarCliente();
 				frmBuscarCliente.setVisible(true);
 			}
 		});

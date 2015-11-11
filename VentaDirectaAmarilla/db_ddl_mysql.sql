@@ -47,11 +47,13 @@ create unique index clientes_u_idx on cliente ( nif );
 
 create table jornada(
 	idJornada int not null,
+	idSucursal int not null,
 	horaInicio int not null,
 	minutoInicio int not null,
 	horaFin int not null,
 	minutoFin int not null,
-	constraint jornadas_pk primary key ( idJornada )
+	constraint jornadas_pk primary key ( idJornada ),
+	constraint joranda_sucursal_fk foreign key ( idSucursal ) references sucursal ( idSucursal )
 );
 
 create table provincia (

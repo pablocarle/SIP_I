@@ -81,8 +81,8 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mntmBuscarCliente = new JMenuItem("Buscar Cliente");
 		mntmBuscarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrmBuscarCliente frmBuscarCliente = FrmBuscarCliente.getInstancia();
-				frmBuscarCliente.setVisible(true);
+				JFrame buscarCliente = new FrmBuscarCliente();
+				buscarCliente.setVisible(true);
 			}
 		});
 		mnClientes.add(mntmBuscarCliente);

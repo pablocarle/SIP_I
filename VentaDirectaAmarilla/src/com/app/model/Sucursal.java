@@ -11,7 +11,12 @@ public class Sucursal {
 	public Sucursal() {
 		super();
 	}
-
+	
+	@Override
+	public String toString() {
+		return descripcion;
+	}
+	
 	public int getIdSucursal() {
 		return idSucursal;
 	}

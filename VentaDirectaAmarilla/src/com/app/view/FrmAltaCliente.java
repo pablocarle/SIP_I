@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -393,6 +394,14 @@ public class FrmAltaCliente extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int ret = JOptionPane.showConfirmDialog(null, "Confirma cancelar?", "Cancelar", JOptionPane.YES_NO_OPTION);
+				if (ret == JOptionPane.YES_OPTION) {
+					dispose();
+				}
+			}
+		});
 		btnCancelar.setBounds(431, 294, 89, 23);
 		contentPane.add(btnCancelar);
 		
