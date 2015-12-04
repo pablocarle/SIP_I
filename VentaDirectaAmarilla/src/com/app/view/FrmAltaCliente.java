@@ -105,14 +105,14 @@ public class FrmAltaCliente extends JFrame {
 		setResizable(false);
 		setTitle("Alta de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 569, 363);
+		setBounds(100, 100, 490, 363);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 510, 271);
+		tabbedPane.setBounds(10, 11, 467, 271);
 		contentPane.add(tabbedPane);
 		
 		JPanel panelDatosPrincipales = new JPanel();
@@ -121,39 +121,39 @@ public class FrmAltaCliente extends JFrame {
 		
 		txtCodigoCliente = new JTextField();
 		txtCodigoCliente.setEditable(false);
-		txtCodigoCliente.setBounds(89, 11, 86, 20);
+		txtCodigoCliente.setBounds(136, 12, 86, 20);
 		panelDatosPrincipales.add(txtCodigoCliente);
 		txtCodigoCliente.setColumns(10);
 		
 		JLabel lblCodigo = new JLabel("C\u00F3digo");
-		lblCodigo.setBounds(10, 14, 46, 14);
+		lblCodigo.setBounds(10, 14, 97, 14);
 		panelDatosPrincipales.add(lblCodigo);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(90, 42, 302, 20);
+		txtApellido.setBounds(136, 41, 302, 20);
 		panelDatosPrincipales.add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(90, 73, 302, 20);
+		txtNombre.setBounds(136, 73, 302, 20);
 		panelDatosPrincipales.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(10, 45, 46, 14);
+		lblApellido.setBounds(10, 45, 97, 14);
 		panelDatosPrincipales.add(lblApellido);
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(10, 76, 46, 14);
+		lblNombre.setBounds(10, 76, 86, 14);
 		panelDatosPrincipales.add(lblNombre);
 		
 		txtRazonSocial = new JTextField();
-		txtRazonSocial.setBounds(90, 104, 302, 20);
+		txtRazonSocial.setBounds(136, 105, 302, 20);
 		panelDatosPrincipales.add(txtRazonSocial);
 		txtRazonSocial.setColumns(10);
 		
 		JLabel lblRazonSocial = new JLabel("Raz\u00F3n Social");
-		lblRazonSocial.setBounds(10, 107, 97, 14);
+		lblRazonSocial.setBounds(10, 107, 124, 14);
 		panelDatosPrincipales.add(lblRazonSocial);
 		
 		txtTelefono = new JTextField();
@@ -184,12 +184,12 @@ public class FrmAltaCliente extends JFrame {
 		
 		txtSucursal = new JTextField();
 		txtSucursal.setEditable(false);
-		txtSucursal.setBounds(306, 11, 86, 20);
+		txtSucursal.setBounds(352, 12, 86, 20);
 		panelDatosPrincipales.add(txtSucursal);
 		txtSucursal.setColumns(10);
 		
 		lblSucursal = new JLabel("Sucursal");
-		lblSucursal.setBounds(234, 14, 62, 14);
+		lblSucursal.setBounds(266, 14, 62, 14);
 		panelDatosPrincipales.add(lblSucursal);
 		
 		lblEmail = new JLabel("Email");
@@ -344,7 +344,12 @@ public class FrmAltaCliente extends JFrame {
 		panelDatosDireccion.add(txtQuinta);
 		
 		btnNuevaDireccin = new JButton("Nueva Direcci\u00F3n");
-		btnNuevaDireccin.setBounds(331, 173, 120, 23);
+		btnNuevaDireccin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO Nueva Direccion (requiere que el cliente ya este creado)
+			}
+		});
+		btnNuevaDireccin.setBounds(279, 173, 172, 23);
 		panelDatosDireccion.add(btnNuevaDireccin);
 		
 		JPanel panelDatosComerciales = new JPanel();
@@ -352,19 +357,19 @@ public class FrmAltaCliente extends JFrame {
 		panelDatosComerciales.setLayout(null);
 		
 		cmbViaPago = new JComboBox<ViaPago>();
-		cmbViaPago.setBounds(99, 11, 98, 20);
+		cmbViaPago.setBounds(184, 11, 266, 20);
 		panelDatosComerciales.add(cmbViaPago);
 		
 		cmbCondicionIVA = new JComboBox<CondicionIVA>();
-		cmbCondicionIVA.setBounds(99, 42, 98, 20);
+		cmbCondicionIVA.setBounds(184, 42, 266, 20);
 		panelDatosComerciales.add(cmbCondicionIVA);
 		
 		lblViaPago = new JLabel("Via de Pago");
-		lblViaPago.setBounds(10, 14, 69, 14);
+		lblViaPago.setBounds(10, 14, 156, 14);
 		panelDatosComerciales.add(lblViaPago);
 		
 		lblCondicionIva = new JLabel("Condicion IVA");
-		lblCondicionIva.setBounds(10, 45, 69, 14);
+		lblCondicionIva.setBounds(10, 45, 156, 14);
 		panelDatosComerciales.add(lblCondicionIva);
 		
 		panelUbicacionGeografica = new JPanel();
@@ -372,25 +377,30 @@ public class FrmAltaCliente extends JFrame {
 		panelUbicacionGeografica.setLayout(null);
 		
 		txtLatitud = new JTextField();
-		txtLatitud.setBounds(70, 11, 137, 20);
+		txtLatitud.setBounds(146, 11, 304, 20);
 		panelUbicacionGeografica.add(txtLatitud);
 		txtLatitud.setColumns(10);
 		
 		txtLongitud = new JTextField();
-		txtLongitud.setBounds(284, 11, 137, 20);
+		txtLongitud.setBounds(146, 43, 304, 20);
 		panelUbicacionGeografica.add(txtLongitud);
 		txtLongitud.setColumns(10);
 		
 		lblLatitud = new JLabel("Latitud");
-		lblLatitud.setBounds(10, 14, 46, 14);
+		lblLatitud.setBounds(10, 14, 118, 14);
 		panelUbicacionGeografica.add(lblLatitud);
 		
 		lblLongitud = new JLabel("Longitud");
-		lblLongitud.setBounds(225, 14, 46, 14);
+		lblLongitud.setBounds(10, 45, 118, 14);
 		panelUbicacionGeografica.add(lblLongitud);
 		
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(332, 294, 89, 23);
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//TODO Alta de cliente
+			}
+		});
+		btnGuardar.setBounds(231, 294, 113, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -402,7 +412,7 @@ public class FrmAltaCliente extends JFrame {
 				}
 			}
 		});
-		btnCancelar.setBounds(431, 294, 89, 23);
+		btnCancelar.setBounds(356, 294, 113, 23);
 		contentPane.add(btnCancelar);
 		
 		cargarDatos();
