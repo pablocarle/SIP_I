@@ -1,7 +1,5 @@
 package com.app.view;
 
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +10,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import com.app.controller.SistemaVentaDirecta;
 
 public class FrmPrincipal extends JFrame {
 
@@ -70,11 +66,8 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mntmCerrarJornada = new JMenuItem("Cerrar Jornada");
 		mntmCerrarJornada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					SistemaVentaDirecta.getSistema().cerrarJornada(1); //TODO ID de sucursal??
-				} catch (Exception e) {
-					showMessageDialog(null, e.getMessage());
-				}
+				JFrame cerrarJornada = new FrmCerrarJornada();
+				cerrarJornada.setVisible(true);
 			}
 		});
 		mnJornada.add(mntmCerrarJornada);

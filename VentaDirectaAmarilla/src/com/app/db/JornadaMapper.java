@@ -4,4 +4,6 @@ import com.app.model.Jornada;
 
 public interface JornadaMapper extends MapperGenerico<Jornada, Integer> {
 
+	Jornada encontrarJornadaActiva(int idSucursal);
+
 }

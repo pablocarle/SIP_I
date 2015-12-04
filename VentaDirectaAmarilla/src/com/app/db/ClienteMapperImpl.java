@@ -12,7 +12,7 @@ public class ClienteMapperImpl extends MapperGenericoImpl<Cliente, Integer>
 
 	@Override
 	public List<Cliente> buscarPorNombreApellido(String nombre, String apellido) {
-		// TODO Auto-generated method stub
+		// TODO buscar cliente por nombre y apellido
 		return null;
 	}
 

@@ -161,7 +161,23 @@ public class FrmAbrirJornada extends JFrame {
 	}
 
 	protected boolean esFormValido(StringBuilder str) {
-		// TODO Auto-generated method stub
-		return false;
+		str.delete(0, str.length());
+		boolean ret = true;
+		if (cmbSucursales.getSelectedIndex() < 0) {
+			str.append("No se selecciono sucursal");
+			ret = false;
+		}
+		if (cmbMinTurno.getSelectedIndex() < 0) {
+			str.append("No se selecciono minutos de turno");
+			ret = false;
+		}
+		try {
+			Integer.parseInt(txtDesde.getText());
+			Integer.parseInt(txtHasta.getText());
+		} catch (NumberFormatException e) {
+			ret = false;
+			str.append(e.getMessage());
+		}
+		return ret;
 	}
 }

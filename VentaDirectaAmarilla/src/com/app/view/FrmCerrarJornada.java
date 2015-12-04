@@ -1,14 +1,23 @@
 package com.app.view;
 
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+
+import com.app.controller.SistemaVentaDirecta;
+import com.app.model.Jornada;
+import com.app.model.Sucursal;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmCerrarJornada extends JFrame {
 
@@ -17,7 +26,6 @@ public class FrmCerrarJornada extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -35,37 +43,69 @@ public class FrmCerrarJornada extends JFrame {
 		});
 	}
 
+	private JComboBox<Sucursal> cmbSucursal;
+	private JList<Jornada> listJornadas;
+	
 	/**
 	 * Create the frame.
 	 */
 	public FrmCerrarJornada() {
 		setTitle("Cerrar Jornada");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 439, 300);
+		setBounds(100, 100, 431, 282);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(220, 216, 89, 23);
+		btnCerrar.setBounds(176, 216, 112, 23);
 		contentPane.add(btnCerrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(323, 216, 89, 23);
+		btnCancelar.setBounds(300, 216, 112, 23);
 		contentPane.add(btnCancelar);
 		
-		JComboBox<String> cmbSucursal = new JComboBox<String>();
-		cmbSucursal.setBounds(79, 11, 108, 20);
+		cmbSucursal = new JComboBox<Sucursal>();
+		cmbSucursal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int selectedIndex = cmbSucursal.getSelectedIndex();
+				if (selectedIndex >= 0) {
+					Sucursal sucursal = (Sucursal) cmbSucursal.getSelectedItem();
+					if (sucursal != null) {
+						listJornadas.removeAll();
+						try {
+							Jornada jornada = SistemaVentaDirecta.getSistema().obtenerJornadaActiva(sucursal.getIdSucursal());
+							listJornadas.setListData(new Jornada[]{ jornada });
+						} catch (Exception e) {
+							JOptionPane.showMessageDialog(null, e.getMessage());
+							System.err.println(e.getMessage());
+							e.printStackTrace();
+						}
+					} else {
+						System.err.println("error no hay susursal");
+					}
+				}
+			}
+		});
+		cmbSucursal.setBounds(103, 11, 108, 20);
 		contentPane.add(cmbSucursal);
 		
 		JLabel lblSucursal = new JLabel("Sucursal");
 		lblSucursal.setBounds(10, 14, 82, 14);
 		contentPane.add(lblSucursal);
 		
-		table = new JTable();
-		table.setBounds(10, 52, 402, 153);
-		contentPane.add(table);
+		listJornadas = new JList<Jornada>();
+		listJornadas.setBounds(12, 40, 400, 164);
+		contentPane.add(listJornadas);
+		
+		initData();
 	}
 
+	private void initData() {
+		List<Sucursal> sucursales = SistemaVentaDirecta.getSistema().obtenerSucursales();
+		for (Sucursal sucursal : sucursales) {
+			cmbSucursal.addItem(sucursal);
+		}
+	}
 }

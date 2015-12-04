@@ -25,6 +25,7 @@ import com.app.db.ViaPagoMapperImpl;
 import com.app.model.Cliente;
 import com.app.model.CondicionIVA;
 import com.app.model.Direccion;
+import com.app.model.Jornada;
 import com.app.model.Localidad;
 import com.app.model.Provincia;
 import com.app.model.Sucursal;
@@ -104,5 +105,10 @@ public class SistemaVentaDirecta {
 		} else {
 			throw new Exception("No hay jornada abierta para la sucursal con ID " + idSucursal);
 		}
+	}
+
+	public Jornada obtenerJornadaActiva(int idSucursal) {
+		Jornada jornada = jornadaMapper.encontrarJornadaActiva(idSucursal);
+		return jornada;
 	}
 }
