@@ -1,7 +1,6 @@
 package com.app.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -17,8 +16,6 @@ import com.app.db.JornadaMapper;
 import com.app.db.JornadaMapperImpl;
 import com.app.db.LocalidadMapper;
 import com.app.db.LocalidadMapperImpl;
-import com.app.db.MapperGenerico;
-import com.app.db.MapperGenericoImpl;
 import com.app.db.ProvinciaMapper;
 import com.app.db.ProvinciaMapperImpl;
 import com.app.db.SucursalMapper;
@@ -31,7 +28,6 @@ import com.app.model.Direccion;
 import com.app.model.Localidad;
 import com.app.model.Provincia;
 import com.app.model.Sucursal;
-import com.app.model.Usuario;
 import com.app.model.ViaPago;
 
 public class SistemaVentaDirecta {
@@ -62,12 +58,6 @@ public class SistemaVentaDirecta {
 	
 	private static SessionFactory nuevaSessionFactory() {
 		return new Configuration().configure().buildSessionFactory();
-	}
-
-	public static void main(String[] args) {
-		MapperGenerico<Usuario, Integer> usuarioMapper = new MapperGenericoImpl<Usuario, Integer>();
-		Collection<Usuario> usuarios = usuarioMapper.buscarTodos(Usuario.class);
-		System.out.println("Encontrados " + usuarios.size());
 	}
 
 	public static SessionFactory getSessionFactory() {
@@ -106,5 +96,13 @@ public class SistemaVentaDirecta {
 
 	public List<Direccion> obtenerDirecciones(int idCliente) {
 		return new ArrayList<Direccion>(dirMapper.buscarDeCliente(idCliente));
+	}
+
+	public void cerrarJornada(int idSucursal) throws Exception {
+		if (hayJornadaAbierta(idSucursal)) {
+//			TODO Cerrar la jornada
+		} else {
+			throw new Exception("No hay jornada abierta para la sucursal con ID " + idSucursal);
+		}
 	}
 }

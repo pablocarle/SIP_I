@@ -1,5 +1,7 @@
 package com.app.view;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.app.controller.SistemaVentaDirecta;
 
 public class FrmPrincipal extends JFrame {
 
@@ -57,13 +61,22 @@ public class FrmPrincipal extends JFrame {
 		JMenuItem mntmAbrirJornada = new JMenuItem("Abrir Jornada");
 		mntmAbrirJornada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrmAbrirJornada frmAbrirJornada = FrmAbrirJornada.getInstancia();
+				JFrame frmAbrirJornada = new FrmAbrirJornada();
 				frmAbrirJornada.setVisible(true);
 			}
 		});
 		mnJornada.add(mntmAbrirJornada);
 		
 		JMenuItem mntmCerrarJornada = new JMenuItem("Cerrar Jornada");
+		mntmCerrarJornada.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					SistemaVentaDirecta.getSistema().cerrarJornada(1); //TODO ID de sucursal??
+				} catch (Exception e) {
+					showMessageDialog(null, e.getMessage());
+				}
+			}
+		});
 		mnJornada.add(mntmCerrarJornada);
 		
 		JMenu mnClientes = new JMenu("Clientes");

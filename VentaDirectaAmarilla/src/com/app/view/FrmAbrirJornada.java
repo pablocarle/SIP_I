@@ -1,6 +1,11 @@
 package com.app.view;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -9,8 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import com.app.controller.SistemaVentaDirecta;
+import com.app.model.Sucursal;
 
 public class FrmAbrirJornada extends JFrame {
 
@@ -25,7 +31,9 @@ public class FrmAbrirJornada extends JFrame {
 	private JTextField txtDesde;
 	private JTextField txtHasta;
 
-	private static FrmAbrirJornada instancia;
+	private JComboBox<Sucursal> cmbSucursales;
+	private JComboBox<String> cmbMinTurno;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -49,51 +57,65 @@ public class FrmAbrirJornada extends JFrame {
 		setResizable(false);
 		setTitle("Abrir Jornada");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 235);
+		setBounds(100, 100, 495, 232);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblFechahora = new JLabel("Fecha/Hora");
-		lblFechahora.setBounds(221, 17, 84, 14);
+		lblFechahora.setBounds(259, 17, 84, 14);
 		contentPane.add(lblFechahora);
 		
 		txtFechaHora = new JTextField();
 		txtFechaHora.setEditable(false);
-		txtFechaHora.setBounds(285, 14, 120, 20);
+		txtFechaHora.setBounds(361, 15, 120, 20);
 		contentPane.add(txtFechaHora);
 		txtFechaHora.setColumns(10);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setBounds(74, 50, 120, 20);
-		contentPane.add(comboBox);
+		cmbSucursales = new JComboBox<Sucursal>();
+		cmbSucursales.setBounds(131, 50, 120, 20);
+		contentPane.add(cmbSucursales);
 		
 		JLabel lblSucursal = new JLabel("Sucursal");
 		lblSucursal.setBounds(10, 53, 84, 14);
 		contentPane.add(lblSucursal);
 		
 		JLabel lblIdJornada = new JLabel("Id. Jornada");
-		lblIdJornada.setBounds(10, 17, 84, 14);
+		lblIdJornada.setBounds(10, 17, 93, 14);
 		contentPane.add(lblIdJornada);
 		
 		txtIdJornada = new JTextField();
 		txtIdJornada.setEditable(false);
 		txtIdJornada.setColumns(10);
-		txtIdJornada.setBounds(74, 14, 120, 20);
+		txtIdJornada.setBounds(121, 15, 120, 20);
 		contentPane.add(txtIdJornada);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				StringBuilder str = new StringBuilder();
+				if (esFormValido(str)) {
+					try {
+						
+					} catch (Exception e1) {
+						showMessageDialog(null, e1.getMessage());
+					}
+				} else {
+					showMessageDialog(null, str);
+				}
 			}
 		});
-		btnGuardar.setBounds(236, 158, 89, 23);
+		btnGuardar.setBounds(189, 165, 140, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(335, 158, 89, 23);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnCancelar.setBounds(341, 165, 140, 23);
 		contentPane.add(btnCancelar);
 		
 		JLabel lblDesde = new JLabel("Desde");
@@ -118,16 +140,28 @@ public class FrmAbrirJornada extends JFrame {
 		lblMinTurno.setBounds(10, 117, 84, 14);
 		contentPane.add(lblMinTurno);
 		
-		JComboBox<String> cmbMinTurno = new JComboBox<String>();
-		cmbMinTurno.setBounds(74, 114, 39, 20);
+		cmbMinTurno = new JComboBox<String>();
+		cmbMinTurno.setBounds(121, 114, 73, 20);
 		contentPane.add(cmbMinTurno);
+		
+		initData();
 	}
 
-	public static FrmAbrirJornada getInstancia() {
-		if (instancia == null){
-			instancia= new FrmAbrirJornada();
+	private void initData() {
+		List<Sucursal> sucursales = SistemaVentaDirecta.getSistema().obtenerSucursales();
+		for (Sucursal sucursal : sucursales) {
+			cmbSucursales.addItem(sucursal);
 		}
-		return instancia;
+		cmbMinTurno.addItem("5");
+		cmbMinTurno.addItem("10");
+		cmbMinTurno.addItem("15");
+		cmbMinTurno.addItem("20");
+		cmbMinTurno.addItem("25");
+		cmbMinTurno.addItem("30");
 	}
 
+	protected boolean esFormValido(StringBuilder str) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
